@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------------
+// Landing pages hero
+// -----------------------------------------------------------------------------
+
+.lp-hero {
+  padding-bottom: rem-calc(80);
+
+  @media (min-width: $large) {
+    padding-bottom: rem-calc(100);
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: rem-calc(16);
+    margin-left: rem-calc(16);
+  }
+
+  &__text {
+    max-width: rem-calc(690);
+  }
+
+  &__title {
+    font-size: rem-calc(30);
+    line-height: rem-calc(40);
+    font-weight: 900;
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(48);
+      line-height: rem-calc(58);
+    }
+
+    @media (min-width: $large) {
+      font-size: rem-calc(68);
+      line-height: rem-calc(78);
+    }
+  }
+
+  &__list {
+    margin-top: rem-calc(40);
+    font-size: rem-calc(18);
+    line-height: rem-calc(24);
+    font-weight: $medium;
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(24);
+      line-height: rem-calc(34);
+    }
+
+    li {
+      position: relative;
+      color: $primary-color;
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(24);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: rem-calc(-4);
+    margin-right: rem-calc(12);
+    width: rem-calc(30);
+
+    @media (min-width: $medium) {
+      width: rem-calc(40);
+    }
+  }
+
+  &__label {
+    padding-left: rem-calc(46);
+
+    @media (min-width: $medium) {
+      padding-left: rem-calc(60);
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media (min-width: $medium) {
+      max-width: calc(100% - #{rem-calc(690)});
+    }
+  }
+}

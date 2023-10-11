@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendors/normalize', 'vendors/slick', 'vendors/it', 'vendors/vec';
+
+// 3. Base stuff
+@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers',
+  'base/columns';
+
+// 4. Components
+@import 'components/button',
+'components/fields',
+'components/sliders',
+'components/accordions',
+'components/post-list',
+'components/slider-posts',
+'components/breadcrumb',
+'components/problematics',
+'components/testimonies',
+'components/picto-point',
+'components/forms',
+'components/newsletter',
+'components/cta-block',
+'components/page-header',
+'components/pagination',
+'components/floating-button',
+'components/rgpd',
+'components/ui-slider',
+'components/related-products',
+'components/loaders',
+'components/woo-dashboard-navigation',
+'components/wpml-selector',
+'components/payment',
+'components/wpcss',
+'components/calendar',
+'components/landing-pages/lp-hero', 'components/landing-pages/lp-testimonial', 'components/landing-pages/lp-contact',
+'components/landing-pages/lp-benefits', 'components/landing-pages/lp-leads', 'components/landing-pages/lp-certif',
+'components/landing-pages/lp-numbers', 'components/landing-pages/lp-services';
+
+// 5. Layout-related sections
+@import 'layout/header', 'layout/footer', 'layout/popin', 'layout/header-lp', 'layout/footer-lp';
+
+// 6. Page-specific styles
+@import 'pages/home', 'pages/product', 'pages/archives', 'pages/article',
+'pages/woocommerce', 'pages/woocommerce-archive-product', 'pages/woocommerce-single-product',
+'pages/myaccount', 'pages/login',
+'pages/cart', 'pages/checkout',
+'pages/gutenberg', 'pages/cv',
+'pages/lp';
+
+// 7. Themes
+@import 'themes/default';

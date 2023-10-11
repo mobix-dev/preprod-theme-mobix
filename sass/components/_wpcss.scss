@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE WPC Share Cart
+// -----------------------------------------------------------------------------
+.wpcss {
+
+  &-area {
+
+    .wpcss-popup {
+      border-radius: rem-calc(16);
+
+      &-content {
+        font-size: rem-calc(18);
+      }
+
+      &-link {
+        input {
+          color: $primary-color;
+
+          &:focus-visible {
+            outline-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  &-copy {
+    margin-top: rem-calc(20);
+    width: 100%;
+
+    @media (min-width: $medium) {
+      width: 50%;
+    }
+  }
+
+  &-copy-url {
+    margin-right: rem-calc(8);
+
+    input {
+
+      @media (min-width: $medium) {
+        width: 70%;
+      }
+
+      &:focus-visible {
+        outline-color: $primary-color;
+      }
+    }
+  }
+
+  &-copy-btn {
+
+    input {
+      @extend .button;
+      @extend .button-stroke;
+      @extend .button--small;
+    }
+  }
+
+  &-products {
+
+    .wpcss-actions {
+
+      @media (max-width: $xmedium) {
+        flex-direction: column;
+      }
+
+      button.button.wpcss-add-selected,
+      button.button.wpcss-add-all {
+
+        @media (max-width: $xmedium) {
+          margin-top: rem-calc(6);
+          margin-bottom: rem-calc(6);
+          width: 100%;
+        }
+      }
+    }
+  }
+}

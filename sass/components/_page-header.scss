@@ -1,0 +1,129 @@
+body.error404 {
+  .page-header {
+    min-height: auto;
+  }
+}
+
+.page-header {
+  position: relative;
+  width: 100%;
+  max-width: $bigContainerSize;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $containerPaddingSides 35px $containerPaddingSides;
+
+  &--product {
+    .button-anchor {
+      width: auto;
+      margin-top: 20px;
+    }
+  }
+}
+
+.header-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  @include font('bold');
+  font-size: 36px;
+  line-height: 1.3;
+}
+
+.header-description {
+  @include font('medium');
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.header-image-container {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media (min-width: $medium) {
+  $pageHeaderContentWidth: 725px;
+
+  .page-header {
+    min-height: 550px;
+    padding-bottom: 70px;
+
+    &--archives {
+      @include displayFlex();
+      @include flexProperties(flex-start, flex-start, nowrap, column);
+      min-height: rem-calc(750);
+      margin-top: rem-calc(50);
+    }
+
+    &--product {
+      .button-anchor {
+        margin-top: 30px;
+      }
+    }
+
+    > * {
+      width: $pageHeaderContentWidth;
+      max-width: 60%;
+    }
+
+    [name="form-request"] {
+      width: calc(32% - #{$containerPaddingSides} / 3 * 2);
+    }
+  }
+
+  .header-image-container {
+    display: block;
+  }
+
+  .header-image {
+    max-width: rem-calc(300);
+  }
+}
+
+@media (min-width: $large) {
+  $pageHeaderContentWidth: 620px;
+
+  .page-header {
+    min-height: 650px;
+    padding-bottom: 90px;
+
+    &--archives {
+      min-height: rem-calc(880);
+      margin-top: rem-calc(60);
+    }
+
+    &--product {
+      .button-anchor {
+        margin-top: 50px;
+      }
+    }
+
+    > * {
+      width: $pageHeaderContentWidth;
+    }
+
+    [name="form-request"] {
+      width: calc(29% - #{$containerPaddingSides} / 3 * 2);
+    }
+  }
+
+  .header-title {
+    font-size: 48px;
+  }
+
+  .header-description {
+    font-size: 20px;
+  }
+
+  .header-image-container {
+    position: absolute;
+    left: $pageHeaderContentWidth + $containerPaddingSides + 10px;
+    top: 50%;
+    width: calc(100% - #{$pageHeaderContentWidth} - 29% - #{$containerPaddingSides} / 3 * 2 - #{$containerPaddingSides} - 30px);
+    margin-top: 0;
+    @include prefix(transform, translateY(-50%));
+
+    .header-image {
+      max-width: 100%;
+    }
+  }
+}

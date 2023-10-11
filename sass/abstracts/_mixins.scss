@@ -1,0 +1,316 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin prefix($property, $value, $prefixes: (o ms moz webkit)) {
+	@each $prefix in $prefixes {
+		#{'-' + $prefix + '-' + $property}: $value;
+	}
+
+	// Output standard non-prefixed declaration
+	#{$property}: $value;
+}
+
+@mixin displayFlex($important: '', $inline: '') {
+	@if $inline == 'inline' {
+		@if $important == 'important' {
+			display: -webkit-inline-flex !important;
+			display: inline-flex !important;
+		}
+		@else {
+			display: -webkit-inline-flex;
+			display: inline-flex;
+		}
+	}
+	@else {
+		@if $important == 'important' {
+			display: -webkit-flex !important;
+			display: flex !important;
+		}
+		@else {
+			display: -webkit-flex;
+			display: flex;
+		}
+	}
+}
+@mixin displayInlineFlex($important: '') {
+	@if $important == 'important' {
+		display: -webkit-inline-flex !important;
+		display: inline-flex !important;
+	}
+	@else {
+		display: -webkit-inline-flex;
+		display: inline-flex;
+	}
+}
+
+@mixin flexProperties($justifyContent: flex-start, $alignItems: flex-start, $flexWrap: nowrap, $flexDirection: row) {
+	@include prefix('justify-content', $justifyContent);
+	@include prefix('align-items', $alignItems);
+	@include prefix('flex-wrap', $flexWrap);
+	@include prefix('flex-direction', $flexDirection);
+}
+
+@mixin font($style) {
+	$defaultFonts: Arial, Verdana, Helvetica, sans-serif;
+	$font: 'Raleway';
+  $fontWeight: 400;
+
+	@if $style == 'icomoon' {
+		$font: 'icomoon';
+	}
+  @else if $style == 'regular' {
+		$fontWeight: 400;
+	}
+	@else if $style == 'medium' {
+		$fontWeight: 500;
+	}
+	@else if $style == 'semibold' {
+		$fontWeight: 600;
+	}
+	@else if $style == 'bold' {
+		$fontWeight: 700;
+	}
+	@else if $style == 'extrabold' {
+		$fontWeight: 800;
+	}
+
+	font-family: $font, $defaultFonts;
+  font-weight: $fontWeight;
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Center element vertically in its first positioned parent element.
+@mixin center-vertically {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//Center element vertically and horizontally in its first positioned parent element.
+@mixin center-absolute($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+//Absolute positioning an element
+@mixin abs-position($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+//Font-size from px to rem, with fallback in px for older browser
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+/// Event wrapper, replace &:hover,&:focus,&:active.
+// 	Use : @include on-event { }
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+//Add cover background to an element
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+//Create an arrow element, choose direction, size and color. Perfect for ::after and ::before elements
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if ($direction == right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if ($direction == down) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+}
+
+@mixin buttonNoStyle {
+  background: none;
+  @include prefix(appearance, none, [webkit]);
+  border: none;
+  cursor: pointer;
+}
+
+//Media query max-width (desktop first dev)
+@mixin max-width($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+//Media query min-width (mobile first dev)
+@mixin min-width($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+
+//REM-CALC
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: 10px)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: 10px) {
+  $max: length($values);
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+//SPRITE
+$sprites: (
+        'logo-spiriit': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500.8 480.54'%3e%3cg fill='___body___'%3e%3cpath d='M0 300.14h74.65c4.67 22.81 26.44 35.77 54.95 35.77s47.17-8.29 47.17-29.55c0-14-8.81-23.84-29.55-27.47l-69.46-12.44c-48.21-8.3-72.58-31.11-72.58-71.54 0-56.5 53.91-83.98 118.71-83.98 68.42 0 115.08 31.1 118.71 83.46h-72.57c-4.15-20.74-20.22-31.1-47.69-31.1-24.36 0-43.02 7.78-43.02 24.88 0 11.92 6.74 20.22 27.99 23.84l69.46 10.89c49.76 8.29 74.65 32.66 74.65 74.65 0 62.72-56.5 91.23-122.34 91.23S6.74 358.72 0 300.14ZM576.06 249.86c0 76.72-44.06 139.96-114.04 139.96-40.43 0-79.31-18.66-92.79-88.12v178.84h-79.31V114.56h67.39l8.81 78.79c17.11-67.39 56.5-83.46 99.53-83.46 65.83 0 110.41 61.69 110.41 139.96Zm-79.31 0c0-40.95-25.4-76.72-63.76-76.72s-63.76 33.18-63.76 76.72 24.36 76.2 63.76 76.2 63.76-35.77 63.76-76.2ZM719.8 385.16h-79.31V176.77h-39.4v-62.21H719.8v270.6ZM637.38 40.43C637.38 13.48 656.04 0 680.4 0s43.03 13.48 43.03 40.43-18.66 39.92-43.03 39.92-43.02-13.48-43.02-39.92ZM961.87 114.56v62.21h-31.62c-46.65 0-72.57 25.4-72.57 76.72v131.67h-79.31v-270.6h64.28l7.78 84.5c11.4-62.21 40.44-84.5 78.28-84.5h33.18ZM1116.62 385.16h-79.31V176.77h-39.4v-62.21h118.71v270.6ZM1034.2 40.44c0-26.95 18.66-40.43 43.02-40.43s43.03 13.48 43.03 40.43-18.66 39.92-43.03 39.92-43.02-13.48-43.02-39.92Z'/%3e%3c/g%3e%3cpath fill='___exclamation___' d='M1279.49 385.16h-79.31V176.77h-39.4v-62.21h118.71v270.6Zm-82.42-344.72c0-26.95 18.66-40.43 43.02-40.43s43.02 13.48 43.02 40.43-18.66 39.92-43.02 39.92-43.02-13.48-43.02-39.92Z'/%3e%3cpath fill='___body___' d='M1500.8 319.84v65.32h-55.98c-57.54 0-86.57-30.58-86.57-89.16V176.77h-39.4v-62.21h39.4V40.43h79.31V56.5c0 27.47-17.1 58.06-59.1 58.06h121.82v62.21h-62.72v107.82c0 22.81 11.92 35.25 34.22 35.25h29.03Z'/%3e%3c/svg%3e",
+);
+$variables: (
+        'logo-spiriit': (
+                'body': '',
+                'exclamation': ''
+        ),
+);
+
+// https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
+@function sprite-str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if type-of($replace) == 'null' {
+    $replace: '';
+  }
+
+  @if ( $index ) {
+    @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function sprite-svg-uri($value) {
+  $output: $value;
+
+  $output: sprite-str-replace($output, '"', "'");
+  $output: sprite-str-replace($output, '<', '%3C');
+  $output: sprite-str-replace($output, '>', '%3E');
+  $output: sprite-str-replace($output, '&', '%26');
+  $output: sprite-str-replace($output, '#', '%23');
+
+  @return $output;
+}
+
+@mixin sprite($name, $user-variables: (), $include-size: false) {
+  $sprite: map-get($sprites, $name);
+
+  // Inject variables
+  $default-variables: map-get($variables, $name);
+  @if type-of($default-variables) == 'map' {
+    @each $key, $value in map-merge($default-variables, $user-variables) {
+      @if ( not map-has-key($default-variables, $key) ) {
+        @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+      }
+
+      $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote(#{$value})));
+    }
+  } @else if type-of($user-variables) == 'map' {
+    @warn 'Sprite \'#{$name}\' does not contain any variables';
+  }
+
+  background: url($sprite) center no-repeat;
+}
+
+//standard styles
+
+%standard-styles {
+
+  // Lists
+  ul {
+    list-style: none; // Custom bullets and numbers
+    margin: rem-calc(20 0 20 15);
+
+    @media (min-width: $medium){
+      margin: rem-calc(20 0 20 30);
+    }
+
+    li {
+      position: relative;
+      margin: rem-calc(4 0);
+      padding-left: rem-calc(26);
+      font-size: rem-calc(16);
+    }
+  }
+
+
+  // Custom Bullets
+  ul li::before {
+    content: '\2022'; // 2022 is bigger
+    position: absolute;
+    top: -2px;
+    left: 0;
+    font-weight: bold;
+    color: $primary-color;
+    font-size: rem-calc(20);
+    line-height: rem-calc(28);
+  }
+
+  ul ol li {
+    padding-left: rem-calc(10);
+
+    &::before {
+      display: none;
+    }
+  }
+}

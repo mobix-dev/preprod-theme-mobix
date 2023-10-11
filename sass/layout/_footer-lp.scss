@@ -1,0 +1,88 @@
+// -----------------------------------------------------------------------------
+// Footer Landing pages
+// -----------------------------------------------------------------------------
+
+.footer-lp {
+  margin-top: rem-calc(50);
+  border-radius: rem-calc(20 20 0 0);
+
+  @media (min-width: $medium) {
+    margin-top: rem-calc(100);
+  }
+
+  @media (min-width: $large) {
+    padding-top: rem-calc(130);
+    padding-bottom: rem-calc(130);
+    border-radius: rem-calc(40 40 0 0);
+  }
+
+  &__img {
+    position: relative;
+    top: rem-calc(16);
+    display: inline-block;
+    width: rem-calc(130);
+    margin-bottom: 0;
+    margin-block-end: 0;
+
+    @media (min-width: $large) {
+      width: rem-calc(180);
+    }
+  }
+
+  &__text {
+    margin-bottom: rem-calc(46);
+    line-height: 1.1;
+
+    @media (min-width: $large) {
+      padding-right: rem-calc(118);
+      padding-left: rem-calc(118);
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn-img {
+    display: flex;
+    max-width: rem-calc(456);
+    margin-right: rem-calc(10);
+    margin-left: rem-calc(10);
+  }
+
+  .button {
+    margin-right: rem-calc(10);
+    margin-left: rem-calc(10);
+  }
+
+  .button--orange {
+    margin-bottom: rem-calc(30);
+
+    @media (min-width: $medium) {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .footer-content {
+    width: 100%;
+    max-width: rem-calc(900);
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #ffffff;
+    font-size: rem-calc(38);
+    font-weight: 900;
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(48);
+    }
+
+    @media (min-width: $large) {
+      font-size: rem-calc(68);
+    }
+  }
+}

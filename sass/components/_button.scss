@@ -1,0 +1,249 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.button-reset {
+  background: none;
+  -webkit-appearance: none; appearance: none;
+  border: none;
+  padding: 0;
+}
+
+.button {
+  background-color: $button-primary-color;
+  -webkit-appearance: none; appearance: none;
+  display: inline-block;
+  height: 43px;
+  padding: 0 25px;
+  border: 2px solid $button-primary-color;
+  border-radius: 30px;
+  @include font('bold');
+  font-size: 12px;
+  line-height: 39px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  @include prefix(transition, $button-transition);
+
+  @media (min-width: $medium) {
+    height: 52px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+    line-height: 48px;
+  }
+
+  @media (min-width: $xlarge) {
+    height: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 14px;
+    line-height: 56px;
+  }
+
+  &:not(.button--open):hover,
+  &:not(.button--open):active,
+  &:not(.button--open):focus,
+  &.button--open.is-open {
+    background-color: transparent;
+    text-decoration: none;
+    color: $button-primary-color;
+  }
+
+  &--orange {
+    background-color: $button-secondary-color;
+    border-color: $button-secondary-color;
+
+    &:not(.button--open):hover,
+    &:not(.button--open):active,
+    &:not(.button--open):focus,
+    &.button--open.is-open {
+      color: $button-secondary-color;
+    }
+  }
+  &--yellow {
+    background-color: $button-third-color;
+    border-color: $button-third-color;
+
+    &:not(.button--open):hover,
+    &:not(.button--open):active,
+    &:not(.button--open):focus,
+    &.button--open.is-open {
+      color: $button-third-color;
+    }
+  }
+  &--grey {
+    background-color: $button-fourth-color;
+    border-color: $button-fourth-color;
+    color: #000000;
+
+    &:not(.button--open):hover,
+    &:not(.button--open):active,
+    &:not(.button--open):focus,
+    &.button--open.is-open {
+      color: #000000;
+    }
+  }
+
+  &-stroke {
+    background-color: transparent;
+    color: $button-primary-color;
+
+    &:not(.button--open):hover,
+    &:not(.button--open):active,
+    &:not(.button--open):focus,
+    &.button--open.is-open {
+      background-color: $button-primary-color;
+      color: #FFFFFF;
+    }
+
+    &--orange {
+      border-color: $button-secondary-color;
+      color: $button-secondary-color;
+
+      &:not(.button--open):hover,
+      &:not(.button--open):active,
+      &:not(.button--open):focus,
+      &.button--open.is-open {
+        background-color: $button-secondary-color;
+      }
+    }
+    &--yellow {
+      border-color: $button-third-color;
+      color: $button-third-color;
+
+      &:not(.button--open):hover,
+      &:not(.button--open):active,
+      &:not(.button--open):focus,
+      &.button--open.is-open {
+        background-color: $button-third-color;
+      }
+    }
+    &--grey {
+      border-color: $button-fourth-color;
+      color: #000000;
+
+      &:not(.button--open):hover,
+      &:not(.button--open):active,
+      &:not(.button--open):focus,
+      &.button--open.is-open {
+        background-color: $button-fourth-color;
+        color: #000000;
+      }
+    }
+  }
+}
+.button:active,
+.button:focus {
+  text-decoration: none;
+}
+
+.button--small {
+  height: rem-calc(34);
+  padding: rem-calc(0 10);
+  line-height: 2.6;
+  font-size: rem-calc(12);
+}
+
+.button--primary {
+}
+
+[type='button'].link {
+  background: none;
+  -webkit-appearance: none; appearance: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+//WOOCOMMERCE
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce {
+
+  button.button,
+  button.button.alt,
+  a.button.alt {
+    @extend .button;
+  }
+
+  button.button-stroke {
+    @extend .button;
+    @extend .button-stroke;
+  }
+
+  button.button.alt.button--small,
+  a.button.alt.button--small,
+  button.button--small {
+    @extend .button--small;
+  }
+
+  button.button.alt.button--small.button--text,
+  a.button.alt.button--small.button--text,
+  button.button--small.button--text {
+    @extend .button--small;
+    height: auto;
+    padding-top: rem-calc(6);
+    padding-bottom: rem-calc(6);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  a.button {
+    @extend .button;
+    @extend .button-stroke;
+    @extend .button--small;
+  }
+
+  button.button:disabled,
+  button.button:disabled[disabled] {
+    @extend .button;
+  }
+
+  //share btn
+  button.button.wpcss-btn,
+  button.button.wpcss-add-all {
+    @extend .button-stroke;
+  }
+
+  //checkout btn
+  a.checkout-button.button.alt {
+    height: 43px;
+    padding: 0 25px;
+    font-size: 12px;
+    line-height: 39px;
+
+    @media (min-width: $medium) {
+      height: 52px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-size: 14px;
+      line-height: 48px;
+    }
+
+    @media (min-width: $xlarge) {
+      height: 60px;
+      padding-left: 40px;
+      padding-right: 40px;
+      font-size: 14px;
+      line-height: 56px;
+    }
+  }
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) {
+
+  a.button.footer-contact-support,
+  a.button {
+    @extend .button;
+  }
+
+  a.button--orange {
+    @extend .button--orange
+  }
+}
+
+
+//button wpcf7-form in article page
+.dbutton {
+  @extend .button;
+}

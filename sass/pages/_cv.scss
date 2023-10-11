@@ -1,0 +1,308 @@
+// -----------------------------------------------------------------------------
+// CV page
+// -----------------------------------------------------------------------------
+
+.cv {
+  padding-top: rem-calc(10);
+
+  @include min-width($xmedium) {
+    padding-top: rem-calc(40);
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+
+  &__col {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: rem-calc(30);
+    }
+
+    @include min-width($xmedium) {
+      margin-bottom: 0;
+      width: calc(50% - 2rem);
+    }
+
+    @include min-width($medium) {
+      width: calc(33.33333% - 2rem);
+    }
+
+    &--responsive {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: rem-calc(30);
+      width: 100%;
+
+      @include min-width($medium) {
+        margin-top: 0;
+        width: calc(33.33333% - 2rem);
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__block {
+
+    &:not(:last-child) {
+      margin-bottom: rem-calc(50);
+
+      @include min-width($xmedium) {
+        margin-bottom: rem-calc(30);
+      }
+    }
+
+    &-bg {
+      padding: rem-calc(10 20 20 20);
+      border-radius: rem-calc(12);
+      background-color: $block-background-color;
+
+      @include min-width($xmedium) {
+        width: 85%;
+      }
+
+      @include min-width($medium) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(30);
+      }
+    }
+
+    &-icon {
+      position: relative;
+      padding-top: rem-calc(50);
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(40);
+      }
+
+      @include min-width($small) {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        width: calc(50% - 2rem);
+      }
+
+      @include min-width($medium) {
+        padding-top: 0;
+        padding-left: rem-calc(100);
+        width: 100%;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        max-width: rem-calc(46);
+
+        @include min-width($medium) {
+          top: rem-calc(4);
+          left: rem-calc(36);
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .profil {
+    margin-bottom: rem-calc(30);
+    text-align: center;
+
+    @include min-width($medium) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include min-width($xmedium) {
+      width: 85%;
+    }
+
+    &__heading {
+      margin: rem-calc(16 0 20 0);
+    }
+
+    &__name {
+      font-weight: 700;
+      @include font-size(20);
+    }
+
+    &__job {
+      @include font-size(13);
+    }
+
+    &__img {
+
+      img {
+        border-radius: rem-calc(10);
+      }
+    }
+  }
+
+  &.the-content {
+
+    p, li {
+      font-size: rem-calc(14);
+    }
+
+    .cv__title {
+      @include font-size(20);
+      margin-bottom: rem-calc(14);
+      text-align: center;
+
+      @include min-width($xmedium) {
+        text-align: left;
+      }
+
+      &--center {
+        text-align: center;
+      }
+    }
+
+    .cv__block-icon .cv__title {
+      text-align: center;
+
+      @include min-width($medium) {
+        text-align: left;
+      }
+    }
+
+    .expertise-zoho {
+
+      &__logo {
+        text-align: center;
+
+        img {
+          width: rem-calc(80);
+        }
+      }
+
+      &__list {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+      }
+
+      &__item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-weight: 700;
+
+        &__name {
+          display: inline-block;
+        }
+      }
+
+      .star {
+        display: inline-block;
+        margin-left: rem-calc(10);
+        width: rem-calc(90);
+        height: rem-calc(17);
+
+        &-5 {
+          background: url(../images/5stars.png) no-repeat center;
+          background-size: rem-calc(90);
+        }
+
+        &-4 {
+          background: url(../images/4stars.png) no-repeat center;
+          background-size: rem-calc(90);
+        }
+
+        &-3 {
+          background: url(../images/3stars.png) no-repeat center;
+          background-size: rem-calc(90);
+        }
+
+        &-2 {
+          background: url(../images/2stars.png) no-repeat center;
+          background-size: rem-calc(90);
+        }
+
+        &-1 {
+          background: url(../images/1stars.png) no-repeat center;
+          background-size: rem-calc(90);
+        }
+      }
+    }
+
+    .certifications-officielles,
+    .certifications-zoho-spark {
+
+      &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: rem-calc(-4);
+        margin-left: rem-calc(-4);
+
+        @include min-width($xmedium) {
+          justify-content: left;
+        }
+      }
+
+      &__img {
+        margin: rem-calc(4);
+        max-width: rem-calc(95);
+      }
+    }
+
+    .formateur {
+
+      &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: rem-calc(-16);
+        margin-left: rem-calc(-16);
+
+        @include min-width($xmedium) {
+          justify-content: left;
+        }
+      }
+
+      &__img {
+        margin: rem-calc(4 16);
+        max-width: rem-calc(150);
+      }
+    }
+
+    .langues {
+
+      &__list {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+      }
+    }
+  }
+
+  .progress {
+    width: 100%;
+    height: rem-calc(10);
+    overflow: hidden;
+    background: $block-background-color;
+    border-radius: rem-calc(20);
+
+    @include min-width($medium) {
+      width: 70%;
+    }
+  }
+
+  .bar {
+    position: relative;
+    min-width: 1%;
+    height: 100%;
+  }
+}
+

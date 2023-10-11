@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// FONTS :
+// Name every font family here, import are in ../base/_fonts.scss
+// -----------------------------------------------------------------------------
+
+/// Primary font family
+/// Don't forget to change it in ../base/_typography.scss
+$title-font: 'Roboto', sans-serif;
+$content-font: 'Roboto', sans-serif;
+
+//Font weights
+$light: 300;
+$medium: 400;
+$regular: 400;
+$bold: 700;
+
+// -----------------------------------------------------------------------------
+// COLORS :
+// Define every colors here. Depending on the projet, can be "primary", "secondary", "links"... or color names directly.
+// -----------------------------------------------------------------------------
+
+/// Main brand color
+$primary-color: #2BA149;
+$secondary-color: #EFB41C;
+$secondary-color-svg: '%23EFB41C';
+$color-dark: #222422FF;
+$color-dark-alt: #57595D;
+
+$block-background-color: #f5f6fa;
+
+//Text colors - be careful before deleting these, they are used in base/_typography.scss
+$title-color: rgb(12, 12, 12); //Don't remove this
+$text-color: rgb(29, 29, 29); //Don't remove this
+$secondary-text-color: rgb(60, 60, 60); //Don't remove this
+$links-color: $primary-color; //Don't remove this
+$links-hover-color: darken($primary-color, 10%); //Don't remove this
+
+$button-primary-color: #2BA149;
+$button-secondary-color: #EFB41C;
+$button-third-color: #f7d98d;
+$button-fourth-color: #E8E8E8;
+
+$button-transition: all 400ms ease 0s;
+
+// -----------------------------------------------------------------------------
+// AUTRES
+// -----------------------------------------------------------------------------
+
+//Container max width
+// This is used in ../base/_helpers.scss for ".container" class
+$max-width: 1180px;
+
+/// Breakpoints map for responsive. 1em = 10 px with
+
+$xsmall: 450px;
+$small: 680px;
+$xmedium: 768px;
+$medium: 980px;
+$smlarge: 1020px;
+$large: 1300px;
+$xlarge: 1540px;
+$xxlarge: 1920px;
+
+$containerPaddingSides: 20px;
+$bigContainerSize: 1640px;
+
+//Animation Easing
+$ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
+$ease-out: cubic-bezier(0.22, 0.61, 0.08, 1.01);
+$bounce-in-out: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$bounce-out: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+$header-height: 90px;
+$header-height-mobile: 70px;
+$header-shadow: 0 2px 9px 2px #DFDFDF;
+
+$menu-item-height: 48px;
+$submenu-padding-vertical: 25px;
+$submenu-padding-horizontal: 30px;
+// $submenu-padding-vertical-big: 40px;
+// $submenu-padding-horizontal-big: 50px;
+$menu-item-width: 180px;
+$menu-item-width-big: 230px;
+$menu-item-width-big-very: 300px;
+
+$signatureWidth: 130px;

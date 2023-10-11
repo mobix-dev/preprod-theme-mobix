@@ -1,0 +1,767 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  background-color: #FFFFFF;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $header-height-mobile;
+  z-index: 999997;
+  @include prefix(transition, top 400ms ease 0s);
+
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+  }
+}
+.header.close {
+  top: -$header-height-mobile - 10px;
+}
+
+.header-container {
+  @include displayFlex();
+  @include flexProperties(space-between, center);
+  width: 100%;
+  height: 100%;
+  box-shadow: $header-shadow;
+
+  .home-link {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: rem-calc(0 10 0 10);
+    width: rem-calc(160);
+    line-height: 0;
+
+    @media (min-width: $medium) {
+      width: rem-calc(120);
+      padding-left: $containerPaddingSides;
+      padding-right: 0;
+    }
+
+    @media (min-width: $large) {
+      width: rem-calc(200);
+    }
+  }
+
+  .header-content {
+    @include displayFlex();
+    @include flexProperties(space-between, center);
+    width: auto;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .buttons-container  {
+    > * {
+      margin-right: rem-calc(5);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.button-toggle-menu {
+  width: rem-calc(32);
+  height: rem-calc(32);
+  padding: rem-calc(4);
+
+  > .lines {
+    background-color: #000000;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 3px;
+    border-radius: rem-calc(30);
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: #000000;
+      position: absolute;
+      left: 0;
+      top: rem-calc(-7);
+      width: 100%;
+      height: 3px;
+      @include prefix(transform-origin, center);
+    }
+
+    &::after {
+      top: rem-calc(7);
+    }
+  }
+
+  &.is-open {
+    > .lines {
+      background-color: transparent;
+
+      &::before,
+      &::after {
+        top: 0px;
+      }
+
+      &::before {
+        @include prefix(transform, rotate(45deg));
+      }
+      &::after {
+        @include prefix(transform, rotate(-45deg));
+      }
+    }
+  }
+}
+
+.header-menu {
+  display: none;
+  @include flexProperties(space-between, stretch, nowrap, column);
+  background-color: #FFFFFF;
+  position: fixed;
+  left: 0;
+  top: $header-height-mobile;
+  width: 100%;
+  height: calc(100% - #{$header-height-mobile});
+  padding-top: rem-calc(20);
+  padding-bottom: rem-calc(20);
+
+  &.is-open {
+    @include displayFlex();
+  }
+
+  .buttons-container {
+    @include displayFlex();
+    @include flexProperties(space-between, stretch, nowrap, column);
+    padding-top: rem-calc(10);
+    padding-left: rem-calc(10);
+    padding-right: rem-calc(10);
+
+    > * {
+      margin: rem-calc(0 0 15 0);
+      text-align: center;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: rem-calc(6);
+    margin-left: rem-calc(6);
+
+    svg {
+      fill: $color-dark;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+
+      svg {
+        fill: $primary-color;
+      }
+    }
+
+    &--cart {
+      position: relative;
+
+      svg {
+        width: rem-calc(19);
+        height: rem-calc(19);
+      }
+
+      .header-cart-count {
+        position: absolute;
+        top: rem-calc(-8);
+        right: rem-calc(-6);
+        padding: rem-calc(0 6 2 6);
+        border-radius: rem-calc(10);
+        background-color: $primary-color;
+        font-size: rem-calc(10);
+        line-height: rem-calc(15);
+        font-weight: 600;
+        color: #ffffff;
+      }
+    }
+
+    &--login {
+
+      svg {
+        width: rem-calc(16);
+        height: rem-calc(16);
+      }
+    }
+    
+    a {
+      color: $color-dark;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.main-navigation-container {
+  @include prefix(flex, 1 1 auto);
+  overflow: auto;
+  padding-bottom: rem-calc(15);
+  @include font('semibold');
+
+  ul {
+    list-style: none;
+  }
+}
+
+.main-navigation {
+  margin: 0;
+  padding: 0;
+
+  a:not(.button),
+  .menu-item {
+    font-size: rem-calc(14);
+    color: #000000;
+  }
+
+  .menu-item {
+    position: relative;
+    width: 100%;
+
+    > a:not(.button) {
+      @include displayFlex();
+      @include flexProperties(flex-start, center);
+      width: calc(100% - 40px);
+      height: $menu-item-height;
+      padding: rem-calc(13 15);
+    }
+
+    &.menu-item-has-children {
+      > a:not(.button) {
+        &::after {
+          content: '+';
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: rem-calc(40);
+          @include font('regular');
+          font-size: rem-calc(30);
+          text-align: center;
+          cursor: pointer;
+          pointer-events: none;
+        }
+      }
+
+      &.is-open {
+        > a:not(.button) {
+          &::before {
+            content: '';
+            background-color: $block-background-color;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: $menu-item-height;
+            z-index: -1;
+          }
+
+          &::after {
+            content: '‒';
+            font-size: rem-calc(24);
+            line-height: 1.8;
+          }
+        }
+
+        > .sub-menu {
+          @include displayFlex();
+        }
+      }
+
+      &.is-open {
+        > .sub-menu {
+          @include displayFlex();
+        }
+
+        > a:not(.button) {
+          &::after {
+            content: '‒';
+            font-size: rem-calc(24);
+            line-height: 1.8;
+          }
+        }
+      }
+      &.current-page-ancestor {
+        .menu-item {
+          &.current-menu-item {
+            > a:not(.button) {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+
+    &.current_page_item > a {
+      color: $links-color;
+    }
+
+    .sub-menu {
+      display: none;
+      @include flexProperties(flex-start, flex-start, nowrap, column);
+      padding-left: rem-calc(20);
+    }
+
+    .menu-item-description,
+    .menu-item-block {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .header {
+    height: $header-height;
+  }
+  .header.close {
+    top: -$header-height - 10px;
+  }
+
+  .header-container {
+
+    .header-content {
+      display: none;
+    }
+
+    .buttons-container  {
+      .button {
+        height: auto;
+        padding: rem-calc(10 8);
+        font-size: rem-calc(8);
+        line-height: initial;
+      }
+    }
+  }
+
+  .header-menu {
+    @include displayFlex();
+    @include flexProperties(space-between, center, nowrap, row);
+    position: relative;
+    top: 0;
+    height: inherit;
+    padding: rem-calc(10);
+
+    .buttons-container {
+      @include flexProperties(space-between, stretch, nowrap, row);
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: rem-calc(15);
+
+      > * {
+        margin: rem-calc(0 10 0 0);
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .button {
+      order: 1;
+    }
+
+    .button-stroke--orange {
+      order: 0;
+    }
+
+    &__icon {
+
+      &--cart {
+        margin-top: 0;
+        width: rem-calc(21);
+        height: rem-calc(21);
+      }
+
+      &--login {
+        width: rem-calc(18);
+        height: rem-calc(18);
+      }
+    }
+  }
+
+  .main-navigation-container {
+    overflow: visible;
+    padding-bottom: 0;
+    @include font('bold');
+
+    a:not(.button),
+    .menu-item {
+      font-size: rem-calc(10);
+    }
+  }
+
+  .main-navigation {
+    @include displayFlex();
+    @include flexProperties(space-between, center, nowrap, row);
+
+    > .menu-item {
+      width: inherit;
+
+      > a:not(.button) {
+        width: inherit;
+        padding-left: rem-calc(5);
+        padding-right: rem-calc(5);
+        text-align: center;
+      }
+
+      &:nth-child(1) .sub-menu {
+        left: rem-calc(-20);
+      }
+      &:nth-child(2) .sub-menu {
+        left: rem-calc(-220);
+      }
+      &:nth-child(3) .sub-menu {
+        left: 0;
+      }
+      &:nth-child(4) .sub-menu {
+        left: 0;
+      }
+      &:nth-child(5) .sub-menu {
+        left: rem-calc(-610);
+      }
+
+      &.menu-item-has-children {
+        > a:not(.button) {
+          &::after {
+            content: none !important;
+          }
+        }
+
+        &.is-open {
+          > .sub-menu {
+            display: none;
+          }
+        }
+
+        .sub-menu {
+          @include flexProperties(flex-start, flex-start, nowrap, column);
+          background-color: #FFFFFF;
+          position: absolute;
+          top: $menu-item-height;
+          width: rem-calc(350);
+          border-radius: rem-calc(10);
+          box-shadow: 2px 2px 5px 1px #DFDFDF;
+          padding: $submenu-padding-vertical $submenu-padding-horizontal;
+
+          a:not(.button) {
+            @include displayFlex();
+            @include flexProperties(flex-start, flex-start, nowrap, column);
+            height: inherit;
+            font-size: rem-calc(16);
+          }
+
+          a:not(.button):hover {
+            color: $primary-color;
+          }
+
+          .menu-item {
+            width: $menu-item-width;
+            padding-right: rem-calc(15);
+          }
+        }
+
+        &.menu-item-has-menu-item-block {
+          .sub-menu {
+            @include flexProperties(flex-start, flex-start, wrap, column);
+
+            .menu-item-block {
+              @include displayFlex();
+              @include flexProperties(center, flex-start, nowrap, column);
+              background-color: $block-background-color;
+              height: 100%;
+              border-radius: rem-calc(10);
+              padding: rem-calc(5 30);
+              @include font('bold');
+              font-size: rem-calc(18);
+
+              .menu-item-description {
+                margin-top: rem-calc(8);
+                @include font('regular');
+                font-size: rem-calc(12);
+              }
+
+              .button {
+                height: auto;
+                margin-top: rem-calc(20);
+                padding-top: rem-calc(10);
+                padding-bottom: rem-calc(10);
+                text-align: center;
+                line-height: initial;
+              }
+            }
+          }
+        }
+
+        &[class*='menu-item-submenu-columns-'] {
+          .sub-menu {
+            grid-auto-flow: column;
+          }
+        }
+
+        &.menu-item-submenu-columns-2 {
+          .sub-menu {
+            width: $menu-item-width * 2 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-3 {
+          .sub-menu {
+            width: $menu-item-width * 3 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-4 {
+          .sub-menu {
+            width: $menu-item-width * 4 + $submenu-padding-horizontal * 2;
+          }
+        }
+
+        &.menu-item-submenu-lines-2 {
+          .sub-menu {
+            grid-template-rows: repeat(2, auto);
+          }
+        }
+        &.menu-item-submenu-lines-3 {
+          .sub-menu {
+            grid-template-rows: repeat(3, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 4;
+            }
+          }
+        }
+        &.menu-item-submenu-lines-4 {
+          .sub-menu {
+            grid-template-rows: repeat(4, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 5;
+            }
+          }
+        }
+        &.menu-item-submenu-lines-5 {
+          .sub-menu {
+            grid-template-rows: repeat(5, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 6;
+            }
+          }
+        }
+        &.menu-item-submenu-lines-6 {
+          .sub-menu current-menu-item{
+            grid-template-rows: repeat(6, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 7;
+            }
+          }
+        }
+        &.menu-item-submenu-lines-7 {
+          .sub-menu {
+            grid-template-rows: repeat(7, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 8;
+            }
+          }
+        }
+        &.menu-item-submenu-lines-8 {
+          .sub-menu {
+            grid-template-rows: repeat(8, auto);
+
+            .menu-item-block {
+              grid-row: 1 / 9;
+            }
+          }
+        }
+
+        &:hover {
+          .sub-menu {
+            @include displayFlex();
+          }
+        }
+        &[class*='menu-item-submenu-columns-']:hover {
+          .sub-menu {
+            display: grid;
+          }
+        }
+      }
+
+      &::after {
+        $menu-item-bar-height: 4px;
+        background-color: $primary-color;
+        position: absolute;
+        left: 0;
+        bottom: -$menu-item-bar-height / 2;
+        width: 100%;
+        height: $menu-item-bar-height;
+        z-index: 5;
+      }
+
+      &:hover {
+        > a:not(.button) {
+          color: $primary-color;
+        }
+      }
+
+      &:hover,
+      &.current-page-ancestor {
+        &::after {
+          content: "";
+        }
+      }
+
+      .menu-item-description {
+        display: block;
+        margin-top: 5px;
+        @include font('regular');
+        font-size: rem-calc(12);
+      }
+      .menu-item-block {
+        display: block;
+      }
+    }
+
+    .menu-item {
+      > a:not(.button) {
+        width: inherit;
+      }
+    }
+
+    .current-menu-item,
+    .current-page-ancestor,
+    .current-menu-parent,
+    .current_page_parent {
+      > a:not(.button) {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@media (min-width: $large) {
+
+  .main-navigation-container {
+    padding-left: rem-calc(26);
+    padding-right: rem-calc(26);
+
+    a:not(.button),
+    .menu-item {
+      font-size: rem-calc(12);
+    }
+  }
+
+  .main-navigation {
+    > .menu-item {
+      &:nth-child(1) .sub-menu {
+        left: rem-calc(-20);
+      }
+      &:nth-child(2) .sub-menu {
+        left: rem-calc(-220);
+      }
+      &:nth-child(5) .sub-menu {
+        left: rem-calc(-820);
+      }
+
+      &.menu-item-has-children {
+        .sub-menu {
+          .menu-item {
+            width: $menu-item-width-big;
+          }
+        }
+        &.menu-item-submenu-columns-2 {
+          .sub-menu {
+            width: $menu-item-width-big * 2 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-3 {
+          .sub-menu {
+            width: $menu-item-width-big * 3 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-4 {
+          .sub-menu {
+            width: $menu-item-width-big * 4 + $submenu-padding-horizontal * 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $xlarge) {
+  .header-container {
+    .buttons-container  {
+      .button {
+        padding: rem-calc(14 20);
+        font-size: rem-calc(13);
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .main-navigation-container {
+    padding-left: rem-calc(40);
+    padding-right: rem-calc(40);
+
+    a:not(.button),
+    .menu-item {
+      font-size: rem-calc(14);
+    }
+  }
+
+  .main-navigation {
+    > .menu-item {
+      > a:not(.button) {
+        padding-left: rem-calc(8);
+        padding-right: rem-calc(8);
+      }
+
+      &.menu-item-has-children {
+        .sub-menu {
+          .menu-item {
+            width: $menu-item-width-big-very;
+          }
+        }
+        &.menu-item-submenu-columns-2 {
+          .sub-menu {
+            width: $menu-item-width-big-very * 2 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-3 {
+          .sub-menu {
+            width: $menu-item-width-big-very * 3 + $submenu-padding-horizontal * 2;
+          }
+        }
+        &.menu-item-submenu-columns-4 {
+          .sub-menu {
+            width: $menu-item-width-big-very * 4 + $submenu-padding-horizontal * 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $xxlarge) {
+  .main-navigation-container {
+    padding-left: rem-calc(200);
+    padding-right: rem-calc(200);
+  }
+}

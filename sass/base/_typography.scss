@@ -1,0 +1,106 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  @include font('regular');
+}
+h1,
+.h1 {
+  @include font('bold');
+  font-weight: $bold;
+  @include font-size(45);
+  line-height: 1.4;
+  @include max-width($medium) {
+    @include font-size(45);
+  }
+  @include max-width($small) {
+    @include font-size(45);
+  }
+}
+h2,
+.h2 {
+  @include font('bold');
+  font-weight: $light;
+  @include font-size(36);
+  line-height: 1.4;
+  @include max-width($medium) {
+    @include font-size(30);
+  }
+  @include max-width($small) {
+    @include font-size(26);
+  }
+}
+h3,
+.h3 {
+  @include font('bold');
+  font-weight: $light;
+  @include font-size(30);
+  @include max-width($medium) {
+    @include font-size(26);
+  }
+  @include max-width($small) {
+    @include font-size(20);
+  }
+}
+h4,
+.h4 {
+  @include font('bold');
+  font-weight: $medium;
+  @include font-size(25);
+  @include max-width($medium) {
+    @include font-size(20);
+  }
+  @include max-width($small) {
+    @include font-size(18);
+  }
+}
+h5,
+.h5 {
+  @include font('bold');
+  font-weight: $medium;
+  @include font-size(18);
+  @include max-width($small) {
+    @include font-size(21);
+  }
+}
+h6,
+.h6 {
+  @include font('bold');
+  font-weight: $medium;
+  @include font-size(18);
+}
+p,
+.p {
+  @include font-size(16);
+  line-height: 1.8;
+  @include max-width($medium) {
+    @include font-size(16);
+  }
+  @include max-width($small) {
+    @include font-size(16);
+  }
+}
+
+.block-title {
+  margin-top: 0;
+  @include font('bold');
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.block-subtitle-under {
+  margin-top: 12px;
+  @include font('medium');
+  font-size: 14px;
+  line-height: 1;
+}
+
+@media (min-width: $medium) {
+  .block-title {
+    font-size: 36px;
+  }
+}

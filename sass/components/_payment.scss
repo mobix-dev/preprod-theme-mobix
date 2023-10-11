@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE - Payment
+// -----------------------------------------------------------------------------
+#add_payment_method,
+.woocommerce-cart,
+.woocommerce-checkout {
+
+  #payment {
+    background-color: #ffffff;
+
+    div.payment_box {
+      background-color: $block-background-color;
+
+      &::before {
+        border: 1em solid $block-background-color;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+  }
+}

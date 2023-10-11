@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+
+ */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* REM Hack: 1rem = 10px for the whole website now */
+}
+
+body {
+  width: 100%;
+  color: $color-dark;
+  overflow-x: hidden;
+
+  &.no-scroll {
+    overflow-y: hidden;
+  }
+}
+
+main {
+  padding-top: $header-height-mobile;
+
+  @media (min-width: $medium) {
+    padding-top: $header-height;
+  }
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: $links-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $links-hover-color;
+    text-decoration: underline;
+  }
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.alignfull {
+  margin: 32px calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
+}
+.alignwide {
+  margin: 32px calc(25% - 25vw);
+  max-width: 100vw;
+  width: 100vw;
+}
+
+.marg-top0 {
+  margin-top: 0;
+}
+
+.marg-bottom20 {
+ margin-bottom: rem-calc(20);
+}
+
+.center {
+  text-align: center;
+}
+
+// Animate scrolling only if users don’t prefer reduced motion
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  // Add some spacing between the target and the top of the viewport
+  :target {
+    scroll-margin-top: 100px;
+  }
+}

@@ -1,0 +1,124 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE - global styles
+// -----------------------------------------------------------------------------
+.woocommerce {
+  padding-bottom: rem-calc(50);
+  font-size: rem-calc(16);
+  line-height: 1.8;
+
+  @media (min-width: $large) {
+    padding-bottom: rem-calc(100);
+  }
+
+  &.woocommerce-page {
+    padding-bottom: 0;
+  }
+
+  &-notices-wrapper {
+
+    > * {
+      padding-top: rem-calc(50);
+
+      @media (min-width: $large) {
+        padding-top: rem-calc(70);
+      }
+    }
+  }
+
+  h2,
+  h3, .h3 {
+    font-weight: 700;
+  }
+
+  &:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button {
+    @extend .button;
+
+    &.button-stroke--orange {
+      @extend .button-stroke;
+      @extend .button-stroke--orange;
+    }
+  }
+
+  .header-menu .buttons-container > * {
+    margin: 0 0 1.5rem 0;
+
+    @media (min-width: $medium) {
+      margin: 0 1rem 0 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .page-header {
+    min-height: inherit;
+
+    @media (max-width: $medium) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  span.onsale {
+    background-color: $primary-color;
+  }
+
+  .price ins {
+    margin-left: rem-calc(6);
+  }
+
+  &-info,
+  &-message{
+    border-color: $primary-color;
+
+    &::before {
+      color: $primary-color;
+    }
+  }
+
+  &-message,
+  &-error,
+  &-info {
+    background-color: $block-background-color;
+
+    &__text {
+      display: block;
+      padding-bottom: rem-calc(10);
+
+      @media (min-width: $small) {
+        display: inline-block;
+      }
+    }
+
+    .button {
+
+      @media (max-width: $small) {
+        float: none;
+      }
+    }
+  }
+
+  .quantity {
+
+    input {
+      padding: 0;
+      margin-bottom: 0;
+      height: rem-calc(34);
+      font-size: rem-calc(16);
+      border: 1px solid transparentize($color-dark, 0.8);
+      border-radius: rem-calc(10);
+    }
+  }
+}
+.hidden-company {
+  display: none;
+}
+
+.hidden-cart-number {
+  display: none;
+}

@@ -1,0 +1,541 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.block-subtitle {
+  @include font('medium');
+  font-size: rem-calc(10);
+}
+
+// Solutions
+.slider-solutions {
+  background-color: $block-background-color;
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(30);
+}
+
+.slider-solutions-title {
+  margin-bottom: rem-calc(10);
+  @include font('bold');
+  font-size: rem-calc(34);
+  line-height: 1.4;
+}
+
+.slider-solutions-description {
+  @include font('medium');
+  font-size: rem-calc(14);
+  line-height: 1.5;
+}
+
+.slider-solution-buttons-container {
+  @include displayFlex();
+  @include flexProperties(flex-start, flex-start, nowrap, column);
+  margin-top: rem-calc(20);
+
+  .button {
+    margin-bottom: rem-calc(10);
+  }
+  .button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Références clients
+.slider-customer-references-block {
+  margin-bottom: rem-calc(50);
+
+  .block-title {
+    padding-left: $containerPaddingSides;
+    padding-right: $containerPaddingSides;
+    text-align: center;
+  }
+
+  .slick-slide {
+    height: calc(100vw / 4 - 30px);
+    object-fit: contain;
+    margin-left: rem-calc(10);
+    margin-right: rem-calc(10);
+    max-width: rem-calc(150);
+
+    @media (min-width: $medium) {
+      max-width: rem-calc(202);
+    }
+  }
+
+  .slick-arrow {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.grey-block {
+  background-color: $block-background-color;
+  padding-top: rem-calc(40);
+}
+
+// Équipe d'experts
+.team-of-experts-block {
+  padding-bottom: rem-calc(60);
+
+  .team-of-experts-description {
+    margin-bottom: rem-calc(50);
+
+    .team-of-experts-description-text {
+      @include font('medium');
+      font-size: rem-calc(14);
+      line-height: 1.5;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: rem-calc(30);
+    }
+  }
+
+  .team-of-experts-points {
+    .team-of-experts-point {
+      @include displayFlex();
+      @include flexProperties(flex-start, flex-start);
+      margin-bottom: rem-calc(40);
+
+      .team-of-experts-point-image {
+        flex: rem-calc(0 0 65);
+        margin-right: rem-calc(25);
+      }
+      .team-of-experts-point-image::before {
+        left: rem-calc(-10);
+        top: rem-calc(5);
+        width: rem-calc(54);
+        height: rem-calc(54);
+      }
+
+      .team-of-experts-point-title {
+        @include font('bold');
+        font-size: rem-calc(20);
+      }
+
+      .team-of-experts-point-description {
+        @include font('medium');
+        font-size: rem-calc(12);
+        line-height: 1.5;
+      }
+    }
+    .team-of-experts-point:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Approche
+.our-approach-block {
+  .block-title {
+    margin-bottom: rem-calc(20);
+  }
+
+  .our-approach-description {
+    @include font('medium');
+    font-size: rem-calc(14);
+    line-height: 1.5;
+  }
+
+  .our-approach-points {
+    margin-top: rem-calc(15);
+    margin-bottom: rem-calc(35);
+  }
+
+  .our-approach-point {
+    width: calc(100% - #{rem-calc(40)});
+    height: calc(100vw - #{rem-calc(190)});
+    margin-bottom: rem-calc(10);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--3 {
+      flex: 0 0 auto;
+      width: calc(64% - 2rem);
+      height: auto;
+      margin-left: calc(18% + 1rem);
+      margin-right: 1rem;
+    }
+  }
+
+  .our-approach-description-2 {
+    width: calc(100% - #{rem-calc(40)});
+    margin-bottom: rem-calc(20);
+    @include font('medium');
+    font-size: rem-calc(12);
+  }
+}
+
+// Formation
+.training-block {
+  padding-top: rem-calc(70);
+  padding-bottom: rem-calc(75);
+  text-align: center;
+
+  .block-title {
+    width: 100%;
+    max-width: rem-calc(535);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .slider-training-testimonies {
+    margin-top: rem-calc(50);
+  }
+}
+
+@media (min-width: $xsmall) {
+  // Problématiques
+  .slider-problematics-content-hidden {
+    padding-left: rem-calc(25);
+    padding-right: rem-calc(25);
+
+    .slider-problematics-content-subtitle {
+      font-size: rem-calc(24);
+    }
+
+    .slider-problematics-content-description {
+      font-size: rem-calc(14);
+    }
+  }
+
+  // Approche
+  .our-approach-block {
+    .our-approach-description {
+      font-size: rem-calc(18);
+    }
+
+    //Approche
+    .our-approach-points {
+      @include displayFlex();
+      @include flexProperties(flex-end, stretch);
+    }
+
+    .our-approach-point {
+      width: calc(100% - #{rem-calc(180)});
+      height: calc(100vw - #{rem-calc(450)});
+
+      &--3 {
+        flex: 0 0 auto;
+        width: calc(33.33333% - 2rem);
+        height: auto;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+
+    .our-approach-description-2 {
+      font-size: rem-calc(18);
+    }
+  }
+
+  // Formation
+  .training-block {
+    .slider-training-testimonies {
+      margin-top: rem-calc(70);
+    }
+  }
+}
+
+@media (min-width: $small) {
+  // Solutions
+  .slider-solutions-title {
+    font-size: rem-calc(38);
+  }
+
+  .slider-solutions-description {
+    font-size: rem-calc(16);
+  }
+
+  // Problématiques
+  .slider-problematics-content-hidden {
+    .slider-problematics-content-subtitle {
+      font-size: rem-calc(18);
+    }
+
+    .slider-problematics-content-description {
+      font-size: rem-calc(12);
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .block-subtitle {
+    font-size: rem-calc(16);
+  }
+
+  // Solutions
+  .slider-solutions {
+    padding-bottom: 0;
+  }
+
+  .slider-solutions-slide {
+    @include displayFlex();
+    @include flexProperties(space-between, flex-end);
+  }
+
+  .slider-solutions-title {
+    font-size: rem-calc(42);
+  }
+
+  .slider-solutions-content {
+    flex: 0 0 50%;
+    @include prefix(align-self, center);
+    min-width: rem-calc(400);
+    padding: rem-calc(0 20 30 40);
+    font-size: rem-calc(18);
+  }
+
+  .slider-solutions-image {
+    flex: 0 0 50%;
+    padding-right: rem-calc(25);
+
+    picture {
+      display: block;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  .slider-solution-buttons-container {
+    @include flexProperties(flex-start, center, wrap, row);
+
+    .button {
+      margin-right: rem-calc(10);
+    }
+    .button:last-child {
+      margin-right: 0;
+      margin-bottom: rem-calc(10);
+    }
+  }
+
+  // Références clients
+  .slider-customer-references-block {
+    .slick-slide {
+      height: calc(min(100vw, #{$max-width}) / 6 - #{rem-calc(10)});
+      margin-left: rem-calc(20);
+      margin-right: rem-calc(20);
+    }
+
+    .slick-arrow {
+      &.slick-prev {
+        left: calc((100vw - #{rem-calc(1180)}) / -2 + #{rem-calc(40)});
+      }
+      &.slick-next {
+        right: calc((100vw - #{rem-calc(1180)}) / -2 + #{rem-calc(40)});
+      }
+    }
+  }
+
+  .grey-block {
+    margin-left: $containerPaddingSides;
+    margin-right: $containerPaddingSides;
+    padding-top: rem-calc(80);
+  }
+
+  // Équipe d'experts
+  .team-of-experts-block {
+    @include displayFlex();
+    @include flexProperties(space-between, flex-start);
+    padding-bottom: rem-calc(130);
+
+    .team-of-experts-description {
+      margin: rem-calc(0 40 0 0);
+
+      .team-of-experts-description-text {
+        font-size: rem-calc(24);
+      }
+
+      .button {
+        margin-top: rem-calc(40);
+      }
+    }
+
+    .team-of-experts-points {
+      flex: rem-calc(0 0 550);
+      margin-top: rem-calc(25);
+
+      .team-of-experts-point {
+        .team-of-experts-point-image {
+          flex-basis: rem-calc(90);
+        }
+        .team-of-experts-point-image::before {
+          width: rem-calc(72);
+          height: rem-calc(72);
+        }
+
+        .team-of-experts-point-title {
+          font-size: rem-calc(30);
+        }
+
+        .team-of-experts-point-description {
+          font-size: rem-calc(18);
+        }
+      }
+    }
+  }
+
+  // Approche
+  .our-approach-block {
+    .block-title {
+      margin-bottom: 0;
+    }
+
+    .our-approach-description-container {
+      @include displayFlex();
+      @include flexProperties(space-between, flex-start);
+      width: 100%;
+      max-width: rem-calc(1180);
+      margin-left: 0;
+      padding-right: $containerPaddingSides * 2;
+    }
+
+    .our-approach-description {
+      flex: rem-calc(0 0 400);
+      font-size: rem-calc(20);
+    }
+
+    .our-approach-points {
+      margin-top: rem-calc(80);
+      margin-bottom: rem-calc(60);
+    }
+
+    .our-approach-point {
+      margin-bottom: 0;
+
+      &--4 {
+        width: rem-calc(170);
+        height: rem-calc(90);
+      }
+    }
+
+    .our-approach-contact-container {
+      @include displayFlex();
+      @include flexProperties(flex-end, center);
+      width: 100%;
+      max-width: rem-calc(1180);
+      padding-right: $containerPaddingSides * 2;
+    }
+
+    .our-approach-description-2 {
+      flex: rem-calc(0 0 560);
+      margin-bottom: 0;
+      width: calc(100% - #{rem-calc(180)});
+      @include font('semibold');
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .button-contact {
+      margin-left: rem-calc(35);
+    }
+  }
+
+  // Formation
+  .training-block {
+
+    .slider-training-testimonies {
+      margin-top: rem-calc(80);
+    }
+  }
+}
+
+@media (min-width: $large) {
+  // Solutions
+  .slider-solutions-title {
+    font-size: rem-calc(48);
+  }
+
+  .slider-solutions-description {
+    font-size: rem-calc(20);
+  }
+
+  .slider-solutions-content {
+    padding: rem-calc(0 30 30 100);
+  }
+
+  .slider-solutions-image {
+    padding-right: rem-calc(40);
+  }
+
+  // Références clients
+  .slider-customer-references-block {
+    .block-title {
+      margin-bottom: rem-calc(5);
+    }
+  }
+
+  // Approche
+  .our-approach-block {
+    .our-approach-description {
+      flex: rem-calc(0 0 550);
+      font-size: rem-calc(24);
+    }
+
+    .our-approach-points {
+      margin-top: rem-calc(130);
+      margin-bottom: rem-calc(100);
+    }
+
+    .our-approach-point {
+
+      &--3 {
+        width: calc(34% - 8rem);
+        margin-right: 4rem;
+        margin-left: 4rem;
+      }
+
+      &--4 {
+        width: rem-calc(280);
+        height: rem-calc(170);
+      }
+    }
+  }
+
+  // Formation
+  .training-block {
+    .block-title {
+      font-size: rem-calc(48);
+    }
+
+    .slider-training-testimonies {
+      margin-top: rem-calc(90);
+    }
+  }
+
+  // Derniers articles du blog
+  .button-blog-container {
+    margin-top: rem-calc(60);
+  }
+}
+
+@media (min-width: $xlarge) {
+  // Solutions
+  .slider-solutions-content {
+    flex: 1 1;
+  }
+
+  .slider-solutions-image {
+    flex: inherit;
+  }
+
+  // Problématiques
+  .slider-problematics-block-title {
+    font-size: rem-calc(36);
+  }
+
+  .slider-problematics-content-hidden {
+    .slider-problematics-content-subtitle {
+      font-size: rem-calc(30);
+    }
+
+    .slider-problematics-content-description {
+      font-size: rem-calc(20);
+    }
+  }
+}

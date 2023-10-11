@@ -1,0 +1,103 @@
+// -----------------------------------------------------------------------------
+// Logo SPIRIIT IN FOOTER
+// -----------------------------------------------------------------------------
+
+@-webkit-keyframes bounce-spiriit {
+  from,
+  53%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0) scaleY(1);
+  }
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -2px, 0) scaleY(1.1);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -1px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -1px, 0) scaleY(1.02);
+  }
+}
+
+@keyframes bounce-spiriit {
+  from,
+  53%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0) scaleY(1);
+  }
+  40%,
+  43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -2px, 0) scaleY(1.1);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -1px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -1px, 0) scaleY(1.02);
+  }
+}
+
+.spiriit-dot {
+  transform-origin: center bottom;
+  transform: translate3d(0, 0, 0);
+}
+
+.spiriit-dot--first {
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+}
+
+.spiriit-dot--second {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.spiriit-dot--third {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.logo-spiriit {
+  margin-top: -5px;
+}
+
+.logo-spiriit-link:hover .spiriit-dot,
+.logo-spiriit-link:active .spiriit-dot,
+.logo-spiriit-link:focus .spiriit-dot {
+  -webkit-animation-duration: 700ms;
+  animation-duration: 700ms;
+  -webkit-animation-name: bounce-spiriit;
+  animation-name: bounce-spiriit;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.logo-spiriit path,
+.logo-spiriit polygon {
+  fill: black;
+}
+
+.logo-spiriit .spiriit-blue {
+  fill: #3960ff;
+}

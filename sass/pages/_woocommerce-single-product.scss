@@ -1,0 +1,136 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE - single PRODUCT
+// -----------------------------------------------------------------------------
+.woocommerce {
+
+  &.single-product {
+
+    main.site-main {
+
+      @media (max-width: $medium) {
+        padding-top: rem-calc(50);
+      }
+    }
+  }
+
+  &-product-gallery {
+
+    &__wrapper {
+
+      @media (min-width: $medium) {
+        margin-top: rem-calc(14);
+      }
+    }
+  }
+
+  .product_title {
+    font-size: rem-calc(30);
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(36);
+    }
+  }
+
+  &-product-details__short-description {
+    @extend %standard-styles;
+  }
+
+  .summary {
+
+    .amount {
+      font-size: rem-calc(20);
+      font-weight: 700;
+      color: $color-dark;
+    }
+
+    form {
+      flex-wrap: wrap;
+      flex-direction: row;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .cart {
+      padding-top: rem-calc(30);
+    }
+
+    .product_meta {
+      display: none;
+    }
+
+    .quantity {
+
+      input {
+        height: rem-calc(60);
+      }
+    }
+  }
+
+  &:where(body:not(.woocommerce-block-theme-has-button-styles)) {
+
+    .button.button.alt {
+      @extend button;
+    }
+  }
+
+  div.product form.cart {
+    .button,
+    div.quantity {
+      float: none;
+    }
+
+    div.quantity {
+      margin-right: rem-calc(16);
+    }
+  }
+
+  &-tabs {
+    @extend %standard-styles;
+  }
+
+  .tabs {
+    display: none;
+  }
+
+  &-Tabs-panel--description {
+
+    &.panel {
+      padding-top: rem-calc(50);
+
+      h2 {
+        padding-bottom: rem-calc(20);
+        border-bottom: 1px solid transparentize($color-dark, 0.9);
+      }
+    }
+  }
+
+  iframe {
+    max-width: 100%;
+    width: 100%;
+
+    @media (max-width: $medium) {
+      height: 51vw;
+    }
+  }
+
+  div.product div.images {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: rem-calc(250);
+
+    @media (min-width: $medium) {
+      max-width: rem-calc(450);
+    }
+
+    .flex-control-thumbs {
+      margin-top: rem-calc(30);
+
+      li {
+        padding: rem-calc(6);
+      }
+    }
+  }
+}

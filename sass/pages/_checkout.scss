@@ -1,0 +1,67 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE - Checkout page
+// -----------------------------------------------------------------------------
+.woocommerce-checkout {
+
+  &.checkout {
+    padding-top: 0;
+  }
+
+  &-review-order-table {
+    background-color: #ffffff;
+  }
+
+  #payment {
+    background-color: #ffffff;
+  }
+
+  .wp-element-button {
+    @extend .button;
+  }
+
+  a.button.wc-backward {
+    margin-top: rem-calc(30);
+  }
+
+  .woocommerce-thankyou-order-received {
+    margin-bottom: rem-calc(20);
+  }
+
+  .woocommerce-notice {
+
+    &--success {
+      margin-top: rem-calc(20);
+    }
+  }
+
+  .woocommerce-order-overview {
+
+    li {
+      margin-top: rem-calc(10);
+      margin-bottom: rem-calc(10);
+    }
+  }
+}
+
+.woocommerce {
+
+  ul.order_details {
+
+    li  {
+
+      strong {
+
+        @media (max-width: $small) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .woocommerce-privacy-policy-text {
+
+    @media (max-width: $xmedium) {
+      margin-bottom: rem-calc(16);
+    }
+  }
+}

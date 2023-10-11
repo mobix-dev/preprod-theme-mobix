@@ -1,0 +1,11 @@
+.picto-point {
+  position: relative;
+  z-index: 1;
+}
+.picto-point::before {
+  content: '';
+  background-color: $button-third-color;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}

@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// Landing pages benefits
+// -----------------------------------------------------------------------------
+
+.lp-benefits {
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(50);
+
+  &__text {
+    width: 100%;
+    margin-bottom: rem-calc(34);
+
+    @media (min-width: $medium) {
+      width: calc(100% - #{rem-calc(550)});
+      padding-left: rem-calc(50);
+      order: 1;
+    }
+  }
+
+  &__img {
+    max-width: rem-calc(550);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__list {
+    font-size: rem-calc(18);
+    max-width: rem-calc(660);
+    margin-right: auto;
+    margin-left: auto;
+
+    li {
+      padding: rem-calc(4 0 4 50);
+      background: url(../svg/check-list.svg) no-repeat top 2px left;
+      background-size: rem-calc(30);
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(16);
+      }
+    }
+  }
+
+  &-ref__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: rem-calc(960);
+    margin-top: rem-calc(80);
+    margin-right: auto;
+    margin-bottom: rem-calc(40);
+    margin-left: auto;
+
+    @media (min-width: $medium) {
+      justify-content: space-between;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    figure.lp-benefits-ref__img {
+      margin: rem-calc(16);
+    }
+  }
+}

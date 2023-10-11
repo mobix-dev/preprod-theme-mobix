@@ -1,0 +1,144 @@
+// .slider-fade {
+//   [data-vec='carousel-container'] {
+//     [data-vec-carousel-screen]:first-child {
+//       position: relative;
+//     }
+//   }
+// }
+
+.slider-center {
+  &:not(.slider-center--no-scale) {
+    .slick-center {
+      @include prefix(transform, scale(1.1));
+      z-index: 1000;
+
+      @media (min-width: 768px) {
+        @include prefix(transform, scale(1.06));
+      }
+    }
+  }
+
+  .slick-slide {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    @include prefix(transition, transform 400ms ease 0s);
+
+    @media (min-width: 768px) {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+  }
+
+  .slide-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    margin: 50px 0;
+  }
+
+  .slick-arrow {
+    @include displayFlex();
+    @include flexProperties(center, center);
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px #00000029;
+    @include prefix(transform, translateY(-50%));
+    z-index: 5;
+
+    &.slick-prev {
+      left: 10px;
+    }
+    &.slick-next {
+      right: 10px;
+    }
+
+    svg {
+      width: 12px;
+
+      path {
+        stroke: #000000;
+      }
+    }
+  }
+}
+
+.slick-arrow {
+  @include buttonNoStyle;
+}
+
+.slick-dots {
+  @include displayFlex();
+  @include flexProperties(center, center);
+
+  li {
+    margin-right: 10px;
+
+    button {
+      background-color: transparent;
+      @include buttonNoStyle;
+      display: block;
+      position: relative;
+      padding: 7px;
+      font-size: 0;
+      line-height: 0;
+      color: transparent;
+      cursor: pointer;
+    }
+    button::before {
+      content: '';
+      background-color: transparent;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 9px;
+      height: 9px;
+      border: 2px solid $button-secondary-color;
+      border-radius: 50%;
+      @include prefix(transform, translate(-50%, -50%));
+    }
+  }
+  li:last-child {
+    margin-right: 0;
+  }
+  li.slick-active {
+    button::before {
+      background-color: $button-secondary-color;
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .slider-center {
+    .slick-arrow {
+      width: 81px;
+      height: 80px;
+
+      svg {
+        width: 18px;
+      }
+
+      &.slick-prev {
+        left: 25px;
+      }
+      &.slick-next {
+        right: 25px;
+      }
+    }
+  }
+
+  .slick-dots {
+    li {
+      margin-right: 20px;
+
+      button::before {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}

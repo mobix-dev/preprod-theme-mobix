@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// RELATED PRODUCTS
+// -----------------------------------------------------------------------------
+
+.related-products {
+  clear: both;
+
+  &__title {
+    padding: rem-calc(0 0 20 0);
+    border-bottom: 1px solid transparentize($color-dark, 0.9);
+
+    @media (min-width: $medium) {
+      padding: rem-calc(50 0 20 0);
+    }
+  }
+}

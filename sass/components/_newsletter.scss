@@ -1,0 +1,81 @@
+.newsletter-block {
+  padding: 50px 20px 55px 20px;
+  text-align: center;
+
+  .block-title {
+    margin-bottom: 0;
+  }
+
+  .block-subtitle-under {
+    margin-bottom: 35px;
+  }
+
+  form {
+    background-color: transparent;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    > div {
+      position: relative;
+    }
+
+    .form-message {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    #errorMsgDiv {
+      color: #F2644D;
+    }
+
+    #Zc_SignupSuccess {
+      color: #2B7C73;
+
+      // .successicon {
+      //   display: none;
+      // }
+    }
+
+    input {
+      width: 100%;
+      height: 45px;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      line-height: 39px;
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .newsletter-block {
+    .block-subtitle-under {
+      margin-bottom: 40px;
+    }
+
+    form {
+      input {
+        height: 62px;
+      }
+
+      #CONTACT_EMAIL {
+        padding-right: 300px;
+      }
+
+      input[type="submit"],
+      input[type="button"] {
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        width: auto;
+        height: 48px;
+      }
+    }
+  }
+}

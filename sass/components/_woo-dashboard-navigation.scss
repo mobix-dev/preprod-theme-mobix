@@ -1,0 +1,116 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE DASHBOARD NAVIGATION
+// -----------------------------------------------------------------------------
+.woocommerce-MyAccount-navigation {
+
+  &__list {
+
+    @media (max-width: $xmedium) {
+      display: flex;
+    }
+  }
+
+  &-link {
+    padding: rem-calc(16);
+    border-bottom: 1px solid transparentize($color-dark, 0.9);
+
+    @media (max-width: $xmedium) {
+      padding: 0;
+      flex: auto;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      color: $color-dark;
+
+      @media (max-width: $xmedium) {
+        display: inline-block;
+        padding: rem-calc(30);
+      }
+    }
+
+    &.is-active {
+      background-color: $block-background-color;
+      font-weight: 700;
+      border-bottom: 3px solid $primary-color;
+      border-top-left-radius: rem-calc(10);
+      border-top-right-radius: rem-calc(10);
+
+      @media (min-width: $xmedium) {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &--dashboard {
+      background: url(../svg/dashboard.svg) no-repeat center;
+      background-size: rem-calc(20);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(20);
+      }
+    }
+
+    &--orders {
+      background: url(../svg/shopping-cart.svg) no-repeat center;
+      background-size: rem-calc(20);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(20);
+      }
+    }
+
+    &--downloads {
+      background: url(../svg/download.svg) no-repeat center;
+      background-size: rem-calc(20);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(20);
+      }
+    }
+
+    &--edit-address {
+      background: url(../svg/address.svg) no-repeat center;
+      background-size: rem-calc(20);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(20);
+      }
+    }
+
+    &--payment-methods {
+      background: url(../svg/credit-card.svg) no-repeat center;
+      background-size: rem-calc(22);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(18);
+      }
+    }
+
+    &--edit-account {
+      background: url(../svg/user.svg) no-repeat center;
+      background-size: rem-calc(16);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(22);
+      }
+    }
+
+    &--customer-logout {
+      background: url(../svg/log-out.svg) no-repeat center;
+      background-size: rem-calc(20);
+
+      @media (min-width: $xmedium) {
+        background-position: center right rem-calc(20);
+      }
+    }
+  }
+
+  &__text {
+
+    @media (max-width: $xmedium) {
+      display: none;
+    }
+  }
+}

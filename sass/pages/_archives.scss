@@ -1,0 +1,129 @@
+.archives-container {
+  position: relative;
+  width: 100%;
+  max-width: $bigContainerSize;
+  margin: 0 auto;
+}
+
+.archives-post-list {
+  padding: 0 $containerPaddingSides 35px $containerPaddingSides;
+
+  .blog-post-list {
+    margin-bottom: 35px;
+
+    &--empty {
+      visibility: hidden;
+    }
+  }
+}
+
+.header-category-choices-block {
+  margin-top: 30px;
+}
+
+.header-category-choices-label {
+  margin-bottom: 5px;
+  @include font('semibold');
+  font-size: 16px;
+}
+
+.header-category-choices-container {
+  position: relative;
+  width: 100%;
+}
+
+.header-category-choices-button {
+  width: 100%;
+  font-size: 14px;
+  text-transform: initial;
+
+  > span::after {
+    // content: '⌄';
+    content: "";
+    background: transparent url(../svg/chevron-down.svg) no-repeat center center;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    font-size: 24px;
+    line-height: 1;
+    @include prefix(transform, translateY(3px));
+  }
+}
+
+.header-category-choices {
+  width: 100%;
+}
+
+@media (min-width: $small) {
+  .archives-post-list {
+    @include displayFlex();
+    @include flexProperties(space-between, stretch, wrap);
+
+    .blog-post-list {
+      @include prefix(flex, 0 0 48%);
+      margin-bottom: 45px;
+    }
+  }
+
+  .header-category-choices-block {
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: $medium) {
+  .archives-post-list {
+    .blog-post-list {
+      @include prefix(flex, 0 0 32%);
+      margin-bottom: 50px;
+    }
+  }
+
+  .header-category-choices-block {
+    @include displayFlex();
+    @include flexProperties(flex-start, center);
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
+  .header-category-choices-label {
+    margin-right: 15px;
+    font-size: 18px;
+  }
+
+  .header-category-choices-container {
+    width: auto;
+  }
+
+  .header-category-choices-button {
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 46px;
+
+    > span::after {
+      margin-left: 50px;
+    }
+  }
+}
+
+@media (min-width: $large) {
+  .archives-post-list {
+    .blog-post-list {
+      @include prefix(flex, 0 0 29%);
+      margin-bottom: 70px;
+    }
+  }
+
+  .header-category-choices-label {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $xlarge) {
+  .archives-post-list {
+    .blog-post-list {
+      margin-bottom: 90px;
+    }
+  }
+}

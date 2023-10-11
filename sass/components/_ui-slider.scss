@@ -1,0 +1,41 @@
+// -----------------------------------------------------------------------------
+// UI-SLIDER Woocommerce
+// -----------------------------------------------------------------------------
+.woocommerce {
+  .ui-slider {
+
+    &.ui-widget-content {
+
+      &:not(.iris-slider-offset) {
+        border: none;
+        background-color: transparentize($color-dark, 0.9);
+        border-radius: rem-calc(10);
+      }
+
+      .ui-slider-handle {
+        width: rem-calc(16);
+        height: rem-calc(16);
+        border-radius: rem-calc(20);
+        border: 1px solid $primary-color!important;
+
+        &:hover {
+          border-color: $primary-color!important;
+        }
+
+        &:focus-visible {
+          outline: 1px solid $primary-color;
+        }
+      }
+
+      .ui-widget-header {
+        background-color: $primary-color!important;
+      }
+    }
+  }
+
+  .wpfFilterWrapper {
+    .ui-slider-horizontal {
+      height: rem-calc(6);
+    }
+  }
+}

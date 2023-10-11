@@ -1,0 +1,212 @@
+form {
+  @include displayFlex();
+  @include flexProperties(flex-start, stretch, nowrap, column);
+  background-color: $block-background-color;
+  position: relative;
+  overflow: hidden;
+  padding: rem-calc(28 20);
+  border-radius: rem-calc(22);
+
+  &[name="form-request"] {
+
+    &.no-description {
+      padding-top: rem-calc(30);
+    }
+
+    [name="DecisionBox"] {
+      margin-top: rem-calc(10);
+    }
+  }
+
+  label {
+    display: none;
+    @include font('medium');
+    font-size: rem-calc(12);
+    color: $color-dark;
+  }
+
+  [name="SingleLine"] {
+    display: none;
+  }
+
+  &.form--black {
+    background-color: $color-dark;
+
+    label {
+      color: #FFFFFF;
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @include prefix(align-self, flex-start);
+  }
+
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    @include prefix(align-self, flex-end);
+    display: inline-block;
+    width: calc(100% -  #{rem-calc(25)});
+    margin-top: rem-calc(-15);
+    line-height: 1.1;
+  }
+
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"] {
+    background-color: #FFFFFF;
+    margin-bottom: rem-calc(10);
+    padding: rem-calc(12 20);
+    border: none;
+    border-radius: rem-calc(30);
+    @include font('medium');
+    font-size: rem-calc(13);
+    color: #000000;
+
+    &:focus-visible {
+      outline-color: $primary-color;
+    }
+  }
+  select {
+    -webkit-appearance: none;
+    font-size: rem-calc(12);
+  }
+  .select-container {
+    position: relative;
+
+    select {
+      width: 100%;
+    }
+  }
+  .select-container::after {
+    content: "";
+    background: transparent url(../svg/chevron-down.svg) no-repeat center center;
+    position: absolute;
+    right: rem-calc(12);
+    top: 50%;
+    width: rem-calc(15);
+    height: rem-calc(15);
+    @include prefix(transform, translateY(-50%) translateY( #{rem-calc(-5)}));
+    pointer-events: none;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  [type="submit"] {
+    @include prefix(align-self, center);
+    margin-top: rem-calc(15);
+  }
+}
+
+body.page-template-template-products {
+  form {
+    &[name="form-request"] {
+      [name="Dropdown1"],
+      .select-container.tools::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  form {
+    padding: rem-calc(40 30);
+
+    &[name="form-request"] {
+      &.no-description {
+        padding-top: rem-calc(40);
+      }
+    }
+
+    [type="submit"] {
+      margin-top: rem-calc(20);
+    }
+  }
+}
+
+@media (min-width: $large) {
+  form {
+    padding: rem-calc(50 35);
+
+    select,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"] {
+      margin-bottom: rem-calc(13);
+      padding: rem-calc(20 30);
+      font-size: rem-calc(14);
+    }
+    select {
+      font-size: rem-calc(13);
+    }
+
+    [type="submit"] {
+      margin-top: rem-calc(30);
+    }
+  }
+}
+
+.woocommerce {
+
+  form.login,
+  form.register,
+  form.checkout_coupon,  {
+    border: none;
+    border-radius: rem-calc(10);
+  }
+
+  form.checkout_coupon + .woocommerce-notices-wrapper {
+    padding: 0;
+  }
+
+  &-EditAccountForm {
+
+    .button {
+      margin-top: rem-calc(30);
+    }
+
+    em {
+      font-size: rem-calc(11);
+    }
+
+    fieldset {
+      margin-top: rem-calc(20);
+    }
+  }
+  
+  textarea {
+    min-height: rem-calc(200);
+  }
+}
+
+.woocommerce form {
+
+  .form-row {
+
+    &.woocommerce-form__bottom {
+      margin-top: rem-calc(20);
+    }
+  }
+}
+
+.select2-container--default {
+
+  .select2-selection--single {
+    font-size: rem-calc(14);
+  }
+
+  .select2-results__option--highlighted[aria-selected],
+  .select2-results__option--highlighted[data-selected] {
+    background-color: $primary-color;
+  }
+}

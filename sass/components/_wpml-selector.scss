@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// WPML SELECTOR LANGUAGE
+// -----------------------------------------------------------------------------
+.wpml-selector {
+  margin-right: rem-calc(10);
+
+  .wpml-ls-legacy-dropdown-click {
+    width: rem-calc(36);
+
+    a {
+      padding: rem-calc(4 6);
+      border: none;
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+
+    a.wpml-ls-item-toggle {
+
+      &:after {
+        right: 0;
+        font-size: rem-calc(10);
+      }
+    }
+
+    .wpml-ls-current-language:hover>a {
+      background-color: transparent;
+    }
+
+    .wpml-ls-sub-menu {
+      border: 1px solid transparentize($color-dark, 0.9);
+      box-shadow: 2px 2px 5px 1px transparentize($color-dark, 0.9);
+    }
+  }
+}

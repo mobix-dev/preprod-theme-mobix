@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+// Landing pages leads
+// -----------------------------------------------------------------------------
+
+.lp-leads {
+
+  .lp-title {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .slider-problematics {
+   margin-top: 0;
+  }
+
+  .slide-content {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .slick-list {
+    position: relative;
+
+    &::before {
+
+      @media (min-width: $medium) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: rem-calc(80);
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 20;
+      }
+    }
+
+    &::after {
+
+      @media (min-width: $medium) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        display: block;
+        width: rem-calc(80);
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 20;
+      }
+    }
+  }
+
+  .slick-slide {
+    margin-right: rem-calc(16);
+    margin-left: rem-calc(16);
+
+    @media (min-width: $medium) {
+      margin-right: rem-calc(30);
+      margin-left: rem-calc(30);
+    }
+  }
+
+  .slick-arrow {
+    box-shadow: none;
+    width: rem-calc(40);
+    height: rem-calc(40);
+    border: rem-calc(4) solid $block-background-color;
+
+    svg {
+      width: rem-calc(6);
+    }
+  }
+}

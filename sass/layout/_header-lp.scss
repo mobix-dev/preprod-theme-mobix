@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// Header Landing pages
+// -----------------------------------------------------------------------------
+
+.header-lp {
+  height: auto;
+  
+  &.close {
+    top: rem-calc(-132);
+  }
+
+  .header-container {
+    max-width: rem-calc(1300);
+    padding-top: rem-calc(30);
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: none;
+  }
+
+  &__link {
+    margin-right: rem-calc(16);
+    margin-left: rem-calc(16);
+  }
+
+  &__btn-img {
+    max-width: rem-calc(412);
+    margin-right: rem-calc(16);
+    margin-left: rem-calc(16);
+  }
+}

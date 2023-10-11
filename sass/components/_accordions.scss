@@ -1,0 +1,52 @@
+.accordion {
+  .accordion-title {
+    cursor: pointer;
+
+    &::after {
+      content: '+';
+      @include font('regular');
+      font-size: 35px;
+      line-height: 1;
+    }
+  }
+
+  .accordion-content {
+    display: none;
+  }
+}
+.accordion.is-open {
+  .accordion-title {
+    &::after {
+      content: '‒';
+      position: relative;
+      bottom: 3px;
+      font-size: 26px;
+      line-height: 1.4;
+    }
+  }
+
+  .accordion-content {
+    display: block;
+  }
+}
+
+@media (min-width: $medium) {
+  .accordion {
+    .accordion-title {
+      cursor: text;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .accordion-content {
+      display: block;
+    }
+  }
+  .accordion.is-open {
+    .accordion-title::after {
+      content: none;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+// -----------------------------------------------------------------------------
+// WOOCOMMERCE - CART PAGE
+// -----------------------------------------------------------------------------
+.woocommerce-js {
+
+  table.shop_table {
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 0 -1px 24px 0;
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    border-radius: rem-calc(5);
+
+    th {
+      font-weight: 700;
+      padding: rem-calc(9 12);
+      line-height: 1.5em;
+    }
+  }
+}
+
+.woocommerce-cart {
+
+  table.shop_table {
+    margin-bottom: 0;
+    background-color: #ffffff;
+  }
+
+  .coupon {
+
+    @media (min-width: $xmedium) {
+      margin-top: rem-calc(8);
+    }
+  }
+
+  a.remove {
+    line-height: 0.8;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  //share button
+  button.button.wpcss-btn {
+
+    @media (max-width: $medium) {
+      margin-top: rem-calc(8);
+    }
+  }
+}
+
+.woocommerce {
+
+  #content table.cart,
+  table.cart,
+  &-page #content table.cart,
+  &-page table.cart {
+
+    td.actions {
+
+      .input-text {
+
+        &.input--small {
+          height: rem-calc(34);
+          width: 100%;
+
+          @media (min-width: $xmedium) {
+            width: auto;
+          }
+        }
+
+        +.button {
+          margin-top: rem-calc(8);
+          float: none;
+          width: 100%;
+
+          @media (min-width: $xmedium) {
+            margin-top: 0;
+            float: left;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  table.shop_table_responsive,
+  &-page table.shop_table_responsive {
+
+    tr td::before {
+
+      @media (max-width: $xmedium) {
+        content: attr(data-title);
+      }
+    }
+  }
+
+  &:where(body:not(.woocommerce-block-theme-has-button-styles)) {
+
+    .button.alt.button {
+
+      &.single_add_to_cart_button {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

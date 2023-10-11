@@ -1,0 +1,33 @@
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.column {
+  flex-basis: 0;
+  flex-grow: 1;
+  @include max-width($small) {
+    flex-basis: 100%;
+  }
+}
+
+//Double the column width
+.column--double {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0;
+  flex-grow: 2;
+  @include max-width($small) {
+    flex-basis: 100%;
+  }
+}
+
+.column--firstonmobile {
+  @include max-width($small) {
+    order: -1;
+    padding-bottom: 30px;
+  }
+}

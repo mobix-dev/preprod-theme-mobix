@@ -1,0 +1,130 @@
+// -----------------------------------------------------------------------------
+// Landing pages numbers
+// -----------------------------------------------------------------------------
+
+.lp-numbers {
+  max-width: rem-calc(1640);
+  margin-right: auto;
+  margin-left: auto;
+
+  .lp-grey-block {
+    padding-bottom: rem-calc(120);
+    border-radius: rem-calc(20);
+  }
+
+  &__content {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__list {
+    margin-top: rem-calc(40);
+    font-size: rem-calc(18);
+    line-height: rem-calc(24);
+    font-weight: 500;
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(24);
+      line-height: rem-calc(34);
+    }
+
+    li {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(30);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: rem-calc(-4);
+    display: inline-block;
+    margin-right: rem-calc(12);
+    width: rem-calc(30);
+
+    @media (min-width: $medium) {
+      width: rem-calc(40);
+    }
+  }
+
+  &__text {
+    padding-left: rem-calc(46);
+
+    @media (min-width: $medium) {
+      padding-left: rem-calc(60);
+    }
+  }
+
+  &-keys {
+    padding: rem-calc(22);
+    margin-top: rem-calc(-110);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: rem-calc(80);
+    max-width: rem-calc(930);
+    border-radius: rem-calc(20);
+    background-color: $primary-color;
+    color: #ffffff;
+    text-align: center;
+
+    @media (min-width: $xmedium) {
+      text-align: left;
+      margin-bottom: rem-calc(136);
+    }
+
+    @media (min-width: $medium) {
+      margin-bottom: rem-calc(136);
+    }
+
+    .lp-grid  {
+      width: 100%;
+    }
+
+    .number {
+      font-size: rem-calc(60);
+      font-weight: 700;
+      line-height: 1.2;
+
+      @media (min-width: $medium) {
+        font-size: rem-calc(80);
+      }
+    }
+
+    .label {
+      padding-bottom: rem-calc(20);
+      font-size: rem-calc(22);
+    }
+
+    .col {
+      width: calc(100% - 2rem);
+      margin-right: 1rem;
+      margin-left: 1rem;
+
+      @media (min-width: $small) {
+        width: calc(50% - 2rem);
+        padding-left: 6%;
+      }
+
+      @media (min-width: $xmedium) {
+        padding-left: 12%;
+      }
+
+      &:nth-child(2) {
+        border-top: 1px solid #ffffff;
+
+        @media (min-width: $small) {
+          border-top: 0;
+          border-left: 1px solid #ffffff;
+        }
+      }
+    }
+  }
+}

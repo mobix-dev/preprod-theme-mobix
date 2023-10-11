@@ -1,0 +1,202 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: $max-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  padding-left: $containerPaddingSides; /* 3 */
+  padding-right: $containerPaddingSides; /* 3 */
+  width: 100%; /* 1 */
+
+  &--full {
+    max-width: inherit;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.container-big {
+  width: 100%;
+  max-width: $bigContainerSize;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $containerPaddingSides 0 $containerPaddingSides;
+} 
+
+@media (min-width: $medium) {
+  .container--full {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 40px);
+  }
+}
+
+.container--only-desktop {
+  @media (min-width: $medium) {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $containerPaddingSides;
+    padding-right: $containerPaddingSides;
+    width: 100%;
+  }
+
+  &--lg {
+
+    @media (min-width: $medium) {
+      max-width: rem-calc(1500);
+    }
+  }
+}
+
+.frame-block {
+  $diffRight: 30px;
+
+  background-color: #FFFFFF;
+  width: calc(100% - #{$diffRight});
+  box-shadow: 0px 3px 16px #00000029;
+  padding-top: 50px;
+  padding-bottom: 55px;
+
+  .frame-block-content {
+    width: calc(100vw - (100vw - #{$max-width}) / 2 - #{$diffRight} - #{$containerPaddingSides} * 2);
+    max-width: calc(100% - #{$containerPaddingSides});
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: $containerPaddingSides;
+  }
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+
+  &:focus {
+    background-color: black;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: white;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; // Above WP toolbar.
+  }
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex='-1']:focus {
+  outline: 0;
+}
+
+iframe.width-changed {
+  width: 100%;
+  display: block;
+  border: 0;
+  height: 0;
+  margin: 0;
+}
+
+@media (min-width: $xsmall) {
+  .frame-block {
+    $diffRight: 35px;
+
+    width: calc(100% - #{$diffRight});
+
+    .frame-block-content {
+      width: calc(100vw - (100vw - #{$max-width}) / 2 - #{$diffRight} - #{$containerPaddingSides} * 2);
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .frame-block {
+    $diffRight: 120px;
+
+    width: calc(100% - #{$diffRight});
+
+    .frame-block-content {
+      width: calc(100vw - (100vw - #{$max-width}) / 2 - #{$diffRight} - #{$containerPaddingSides} * 2);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+@media (min-width: $large) {
+  .frame-block {
+    $diffRight: 200px;
+
+    width: calc(100% - #{$diffRight});
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    .frame-block-content {
+      width: calc(100vw - (100vw - #{$max-width}) / 2 - #{$diffRight} - #{$containerPaddingSides} * 2);
+    }
+  }
+}

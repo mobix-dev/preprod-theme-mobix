@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// GUTENBERG - page
+// -----------------------------------------------------------------------------
+
+.page-content .the-content {
+
+  h2 {
+    margin-bottom: rem-calc(30);
+    font-weight: 700;
+    @include font-size(36);
+    line-height: 1.4;
+
+    @include max-width($medium) {
+      @include font-size(30);
+    }
+
+    @include max-width($small) {
+      @include font-size(26);
+    }
+  }
+
+  h3 {
+    margin-bottom: rem-calc(30);
+    font-weight: 700;
+    @include font-size(30);
+
+    @include max-width($medium) {
+      @include font-size(26);
+    }
+
+    @include max-width($small) {
+      @include font-size(20);
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
+
+  .wp-block-columns {
+    margin-right: rem-calc(-16);
+    margin-left: rem-calc(-16);
+  }
+
+  .wp-block-column {
+    margin-right: rem-calc(16);
+    margin-left: rem-calc(16);
+    padding-right: rem-calc(16);
+    padding-left: rem-calc(16);
+
+    &:not(:last-child) {
+
+      @media screen and (max-width: 781px) {
+        margin-bottom: rem-calc(30);
+      }
+    }
+
+    .wp-block-image {
+      padding-right: rem-calc(16);
+      padding-left: rem-calc(16);
+    }
+
+    &.has-border-radius {
+      border-radius: rem-calc(22);
+    }
+  }
+
+  .wp-block-buttons {
+    margin-top: rem-calc(20);
+  }
+
+  .wp-block-image.size-full {
+
+    @include max-width($xmedium) {
+      text-align: center;
+    }
+  }
+
+  .dispno-mobile {
+
+    @media screen and (max-width: 781px) {
+      display: none;
+    }
+  }
+
+  .has-black-color {
+
+    a {
+      color: $color-dark;
+    }
+  }
+}

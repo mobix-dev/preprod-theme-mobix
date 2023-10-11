@@ -1,0 +1,200 @@
+// -----------------------------------------------------------------------------
+// Landing pages testimonial
+// -----------------------------------------------------------------------------
+
+.lp-testimonial {
+  width: calc(100% - 2rem);
+  margin-right: 1rem;
+  margin-left: 1rem;
+  order: 1;
+
+  @media (min-width: $medium) {
+    width: calc(45% - 2rem);
+    order: 0;
+  }
+
+  .lp-title {
+   padding-right: 0;
+   padding-left: 0;
+
+    @media (min-width: $large) {
+      padding-right: rem-calc(46);
+      padding-left: rem-calc(46);
+    }
+  }
+
+  .container--only-desktop {
+    max-width: rem-calc(550);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .slider-training-testimonies-slide-content {
+    padding: rem-calc(36 30 140 30);
+    border-radius: rem-calc(20);
+    box-shadow: none;
+
+    @media (min-width: $medium) {
+      padding: rem-calc(36 44 140 44);
+    }
+
+    p {
+      font-size: rem-calc(16);
+      line-height: rem-calc(22);
+
+      @media (min-width: $medium) {
+        font-size: rem-calc(22);
+        line-height: rem-calc(32);
+      }
+    }
+  }
+
+  .slick-slide img {
+    top: inherit;
+    bottom: rem-calc(40);
+    width: rem-calc(90);
+
+    @media (min-width: $medium) {
+      bottom: rem-calc(70);
+      width: rem-calc(130);
+    }
+  }
+
+  .slick-arrow {
+    width: rem-calc(81);
+    height: 100%;
+
+    &::after {
+      top: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      width: rem-calc(40);
+      height: rem-calc(40);
+      background-color: #ffffff;
+      border: rem-calc(4) solid $block-background-color;
+      border-radius: rem-calc(40);
+      @include prefix(transform, translateY(#{rem-calc(-22)}));
+      z-index: 5;
+
+      @media (min-width: $large) {
+        @include prefix(transform, translateY(#{rem-calc(-46)}));
+      }
+    }
+
+    svg {
+      position: relative;
+      width: rem-calc(6);
+      height: rem-calc(14);
+      z-index: 10;
+
+      path {
+        stroke: $color-dark;
+      }
+    }
+
+    &.slick-prev {
+      left: rem-calc(-24);
+      z-index: 10;
+
+      @media (min-width: $medium) {
+        left: 0;
+      }
+
+      &::after {
+        left: rem-calc(22);
+      }
+    }
+
+    &.slick-next {
+      right: rem-calc(-24);
+      z-index: 10;
+
+      @media (min-width: $medium) {
+        right: 0;
+      }
+
+      &::after {
+        right: rem-calc(22);
+      }
+    }
+  }
+
+  .slick-dots {
+    margin-top: 0;
+
+    li {
+      margin-right: rem-calc(4);
+
+      button {
+
+        &::before {
+          width: rem-calc(8);
+          height: rem-calc(8);
+          background-color: $primary-color;
+          border: none;
+          opacity: 0.2;
+        }
+      }
+
+      &.slick-active {
+
+        button::before {
+          width: rem-calc(12);
+          height: rem-calc(12);
+          background-color: $primary-color;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .lp-surtitle,
+  .lp-title {
+    text-align: center;
+  }
+
+  p.training-testimony-person-data {
+    margin-bottom: rem-calc(10);
+  }
+
+  .quote-icon {
+    display: block;
+    width: rem-calc(44);
+    height: rem-calc(38);
+    margin-bottom: rem-calc(24);
+    background: url(../svg/quote.svg) no-repeat center;
+    background-size: rem-calc(44);
+  }
+
+  .star {
+    display: inline-block;
+    width: rem-calc(90);
+    height: rem-calc(17);
+
+    &-5 {
+      background: url(../images/5stars.png) no-repeat center;
+      background-size: rem-calc(90);
+    }
+
+    &-4 {
+      background: url(../images/4stars.png) no-repeat center;
+      background-size: rem-calc(90);
+    }
+
+    &-3 {
+      background: url(../images/3stars.png) no-repeat center;
+      background-size: rem-calc(90);
+    }
+
+    &-2 {
+      background: url(../images/2stars.png) no-repeat center;
+      background-size: rem-calc(90);
+    }
+
+    &-1 {
+      background: url(../images/1stars.png) no-repeat center;
+      background-size: rem-calc(90);
+    }
+  }
+}

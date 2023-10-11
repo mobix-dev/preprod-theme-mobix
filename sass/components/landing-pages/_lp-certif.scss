@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// Landing pages Certifications
+// -----------------------------------------------------------------------------
+
+.lp-certif {
+
+  .lp-title {
+    text-align: center;
+
+    @media (min-width: $medium) {
+      margin-bottom: rem-calc(50);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: rem-calc(60);
+
+    @media (min-width: $medium) {
+      margin-bottom: rem-calc(140);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    max-width: rem-calc(140);
+    margin-right: rem-calc(6);
+    margin-left: rem-calc(6);
+  }
+}

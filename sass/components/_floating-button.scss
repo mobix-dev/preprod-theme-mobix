@@ -1,0 +1,229 @@
+.floating-button-container {
+  @include displayFlex();
+  @include flexProperties(flex-end, flex-end, nowrap, column);
+  position: fixed;
+  // right: $containerPaddingSides;
+  // bottom: $containerPaddingSides / 2;
+  right: 0;
+  bottom: 0;
+  // width: 100%;
+  // height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1000;
+
+  $floatingButtonSize: 60px;
+
+  .floating-button {
+    @include buttonNoStyle();
+    background-color: $button-primary-color;
+    @include displayFlex();
+    @include flexProperties(center, center);
+    overflow: hidden;
+    margin-right: $containerPaddingSides / 2;
+    margin-bottom: $containerPaddingSides / 2;
+    width: $floatingButtonSize;
+    height: $floatingButtonSize;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px #00000029;
+
+    svg {
+      fill: #FFFFFF;
+      width: 68%;
+      height: auto;
+      // @include prefix(transform, translateY(2px));
+
+      g {
+        stroke: #FFFFFF;
+      }
+    }
+
+    .floating-button-opened {
+      stroke: #FFFFFF;
+      display: none;
+      width: 75%;
+      // font-size: 60px;
+      // line-height: 1;
+      // color: #FFFFFF;
+      @include prefix(transform, translateY(2px));
+    }
+  }
+
+  $floatingButtonContentMarginBottom: 10px;
+
+  .floating-button-content {
+    display: none;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    // width: 350px;
+    // max-width: calc(100vw - #{$containerPaddingSides} * 2);
+    width: 100%;
+    // height: calc(100% - #{$floatingButtonSize} - #{$header-height-mobile} - #{$containerPaddingSides} / 2 - #{$floatingButtonContentMarginBottom});
+    margin-bottom: $floatingButtonContentMarginBottom;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+  }
+
+  .floating-button-content-head {
+    position: relative;
+    padding: 12px 22px 0 22px;
+    z-index: 1;
+
+    .floating-button-content-title {
+      width: calc(100% - 30px);
+      @include font('medium');
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+
+    .floating-button-container-close {
+      @include buttonNoStyle();
+      position: absolute;
+      right: 25px;
+      top: 24px;
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      // font-size: 26px;
+      // color: #FFFFFF;
+
+      svg {
+        stroke: #FFFFFF;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .floating-button-content-head::before {
+    content: '';
+    background-color: $color-dark;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 130px;
+    z-index: -1;
+  }
+
+  .floating-button-content-block {
+    background-color: #FFFFFF;
+    position: relative;
+    width: calc(100% - 50px);
+    margin: 10px auto 15px auto;
+    padding: 18px 15px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px #00000029;
+    z-index: 2;
+
+    .button {
+      width: 100%;
+      height: 30px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 11px;
+      line-height: 26px;
+      text-align: center;
+    }
+    .button:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .floating-button-content-block-title {
+    margin-bottom: 8px;
+    @include font('semibold');
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .textwidget,
+  .textwidget p,
+  .floating-button-content-block-description {
+    @include font('regular');
+    font-size: 12px;
+    line-height: 1.4;
+
+    a {
+      @include font('medium');
+    }
+  }
+}
+
+.floating-button-container.is-open {
+  .floating-button {
+    .floating-button-closed {
+      display: none;
+    }
+    .floating-button-opened {
+      display: block;
+    }
+  }
+
+  .floating-button-content {
+    display: block;
+  }
+}
+
+@media (min-width: $xsmall) {
+  .floating-button-container {
+    right: $containerPaddingSides;
+    bottom: $containerPaddingSides;
+    // width: 350px;
+    // width: auto;
+    // height: auto;
+
+    .floating-button {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    $floatingButtonContentMarginBottom: 15px;
+
+    .floating-button-content {
+      margin-bottom: $floatingButtonContentMarginBottom;
+    }
+  }
+  .floating-button-container.is-open {
+    width: 350px;
+  }
+}
+
+@media (min-width: $medium) {
+  .floating-button-container {
+    // bottom: $containerPaddingSides;
+    // margin-bottom: $containerPaddingSides;
+
+    $floatingButtonSize: 80px;
+
+    .floating-button {
+      width: $floatingButtonSize;
+      height: $floatingButtonSize;
+
+      // svg {
+      //   @include prefix(transform, translateY(3px));
+      // }
+
+      .floating-button-opened {
+        font-size: 74px;
+        // @include prefix(transform, translateY(-15px));
+      }
+    }
+
+    .floating-button-content-head {
+      padding-top: 20px;
+
+      .floating-button-container-close {
+        top: 32px;
+      }
+    }
+
+    .floating-button-content-block {
+      .button {
+        height: 40px;
+        font-size: 14px;
+        line-height: 36px;
+      }
+    }
+  }
+}

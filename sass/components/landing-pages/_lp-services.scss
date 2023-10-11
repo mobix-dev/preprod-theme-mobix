@@ -1,0 +1,143 @@
+// -----------------------------------------------------------------------------
+// Landing pages services
+// -----------------------------------------------------------------------------
+
+.lp-services {
+  position: relative;
+  margin-top: rem-calc(-56);
+  margin-bottom: rem-calc(80);
+  padding-top: rem-calc(120);
+  padding-bottom: rem-calc(50);
+  background-color: $secondary-color;
+  border-radius: rem-calc(0 0 20 20);
+  z-index: 0;
+
+  @media (min-width: $medium) {
+    padding-bottom: rem-calc(80);
+    margin-bottom: rem-calc(120);
+  }
+  
+  .lp-surtitle {
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .lp-title {
+    margin-bottom: rem-calc(50);
+    text-align: center;
+  }
+
+  .service-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: rem-calc(30 30 30 30);
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: calc(100% - 2rem);
+    background-color: #ffffff;
+    border-radius: rem-calc(20);
+
+    @media (min-width: $medium) {
+      width: calc(33.33333% - 2rem);
+    }
+
+    @media (min-width: $large) {
+      padding: rem-calc(20 46 46 46);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem-calc(30);
+
+      @media (min-width: $medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__heading {
+      padding-bottom: rem-calc(30);
+      margin-bottom: rem-calc(30);
+      border-bottom: 1px solid transparentize($color-dark-alt, 0.8);
+
+      @media (min-width: $medium) {
+        padding-bottom: rem-calc(44);
+        margin-bottom: rem-calc(44);
+      }
+    }
+
+    &__title {
+      margin-bottom: rem-calc(8);
+      font-size: rem-calc(32);
+      line-height: rem-calc(34);
+      color: $secondary-color;
+      font-weight: 700;
+    }
+
+    &__description {
+      font-size: rem-calc(22);
+      line-height: rem-calc(32);
+      font-weight: 600;
+    }
+  }
+
+  &__list {
+    margin-top: 0;
+    margin-bottom: rem-calc(50);
+    font-size: rem-calc(20);
+    line-height: rem-calc(30);
+    color: $color-dark-alt;
+
+    @media (min-width: $medium) {
+      font-size: rem-calc(22);
+      line-height: rem-calc(32);
+    }
+
+    li {
+
+      &:not(:last-child) {
+        margin-bottom: rem-calc(16);
+      }
+    }
+
+    &--num {
+      padding-left: 0;
+      list-style: none; // Custom numbers
+      counter-reset: count;
+
+      li {
+        position: relative;
+        margin: rem-calc(4 0 20 4);
+        padding-left: rem-calc(26);
+        counter-increment: count;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: counter(count) ".";
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-weight: 500;
+          color: $secondary-color;
+          font-size: rem-calc(22);
+        }
+      }
+    }
+
+    &--ord {
+
+      li {
+        padding: rem-calc(4 0 4 42);
+        background: url(../svg/check-orange.svg) no-repeat top rem-calc(6) left;
+        background-size: rem-calc(30);
+      }
+    }
+  }
+
+  &__img {
+    margin-top: auto;
+    text-align: center;
+  }
+}

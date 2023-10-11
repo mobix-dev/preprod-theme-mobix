@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// Landing pages contact form
+// -----------------------------------------------------------------------------
+
+.lp-contact {
+  width: calc(100% - 2rem);
+  margin-right: 1rem;
+  margin-left: 1rem;
+  order: 0;
+
+  @media (min-width: $medium) {
+    width: calc(55% - 2rem);
+    padding-left: rem-calc(50);
+    order: 1;
+  }
+
+  &__container {
+    margin-top: rem-calc(-100);
+    margin-bottom: rem-calc(50);
+    padding: rem-calc(30);
+    background-color: #ffffff;
+    border-radius: rem-calc(20);
+    box-shadow: 0 0 rem-calc(60) #00000020;
+
+    @media (min-width: $medium) {
+      padding: rem-calc(40 54 54 54);
+      margin-top: rem-calc(-200);
+      margin-bottom: 0;
+    }
+  }
+
+  form.form--black {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+
+    label {
+      color: #838383;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="email"],
+    form input[type="number"] {
+      border: 1px solid transparentize($color-dark-alt, 0.85);
+    }
+
+    .button--orange {
+      @extend .button;
+      width: 100%;
+    }
+  }
+}
