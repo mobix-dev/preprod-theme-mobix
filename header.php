@@ -87,8 +87,7 @@ $menu_shop_is_active = get_field('activer_la_boutique', $menu);
 							<button type="button" class="button button-stroke button-stroke--orange" data-open-popin="request" data-request="commerciale"><?php _e('Demande commerciale', 'themede'); ?></button>
 						<?php else: ?>
 							<a href="#form-request" class="button button-stroke button-stroke--orange" data-form="request" data-request="commerciale"><?php _e('Demande commerciale', 'themede'); ?></a>
-						<?php endif; ?>
-						<button type="button" class="button" data-open-popin="contact"><?php _e('Nous contacter', 'themede'); ?></button>
+						<?php enoent; ?>
 					</div>
 				</div>
                 <?php if ($menu_shop_is_active): ?>
